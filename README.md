@@ -14,5 +14,5 @@
 
 
 ## Technical Elements
-* Външен API - https://recipes-api-f0710.web.app/
-* Upload на снимки
+* Firebase
+* Notification scheduling 
