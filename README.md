@@ -15,7 +15,7 @@
 ## Technical Elements
 * Firebase
 * Notification scheduling 
-
+* Gravatar for generating profile icons for each user
 ## Example Designs
 * Add Food Screens
 https://docs.google.com/drawings/d/174EhsFOCGHGkwN4aphymxTpJ8JCatHlkaIyICENYjME/edit
