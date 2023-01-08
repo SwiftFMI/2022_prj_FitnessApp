@@ -14,6 +14,13 @@
 		3F510861295C867B0069F560 /* JimBuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F510860295C867B0069F560 /* JimBuddyTests.swift */; };
 		3F51086B295C867B0069F560 /* JimBuddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F51086A295C867B0069F560 /* JimBuddyUITests.swift */; };
 		3F51086D295C867B0069F560 /* JimBuddyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F51086C295C867B0069F560 /* JimBuddyUITestsLaunchTests.swift */; };
+		F327484C296B6C3F00D197CB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F327484B296B6C3F00D197CB /* FirebaseAuth */; };
+		F327484E296B6C3F00D197CB /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F327484D296B6C3F00D197CB /* FirebaseAuthCombine-Community */; };
+		F3274850296B6C3F00D197CB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F327484F296B6C3F00D197CB /* FirebaseFirestore */; };
+		F3274852296B6C3F00D197CB /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F3274851296B6C3F00D197CB /* FirebaseFirestoreCombine-Community */; };
+		F3274854296B6C3F00D197CB /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F3274853296B6C3F00D197CB /* FirebaseFirestoreSwift */; };
+		F3274856296B6F2200D197CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3274855296B6F2200D197CB /* GoogleService-Info.plist */; };
+		F3274859296B719F00D197CB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F3274858296B719F00D197CB /* FirebaseCrashlytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,7 @@
 		3F510866295C867B0069F560 /* JimBuddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JimBuddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F51086A295C867B0069F560 /* JimBuddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimBuddyUITests.swift; sourceTree = "<group>"; };
 		3F51086C295C867B0069F560 /* JimBuddyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimBuddyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F3274855296B6F2200D197CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3274854296B6C3F00D197CB /* FirebaseFirestoreSwift in Frameworks */,
+				F327484C296B6C3F00D197CB /* FirebaseAuth in Frameworks */,
+				F3274852296B6C3F00D197CB /* FirebaseFirestoreCombine-Community in Frameworks */,
+				F3274859296B719F00D197CB /* FirebaseCrashlytics in Frameworks */,
+				F327484E296B6C3F00D197CB /* FirebaseAuthCombine-Community in Frameworks */,
+				F3274850296B6C3F00D197CB /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +92,7 @@
 				3F51085F295C867B0069F560 /* JimBuddyTests */,
 				3F510869295C867B0069F560 /* JimBuddyUITests */,
 				3F51084D295C86790069F560 /* Products */,
+				F3274857296B719F00D197CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +109,7 @@
 		3F51084E295C86790069F560 /* JimBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				F3274855296B6F2200D197CB /* GoogleService-Info.plist */,
 				3F51084F295C86790069F560 /* JimBuddyApp.swift */,
 				3F510851295C86790069F560 /* ContentView.swift */,
 				3F510853295C867B0069F560 /* Assets.xcassets */,
@@ -127,6 +143,13 @@
 			path = JimBuddyUITests;
 			sourceTree = "<group>";
 		};
+		F3274857296B719F00D197CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,12 +160,21 @@
 				3F510848295C86790069F560 /* Sources */,
 				3F510849295C86790069F560 /* Frameworks */,
 				3F51084A295C86790069F560 /* Resources */,
+				F327485A296B71F200D197CB /* Crashlytics Run Script */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = JimBuddy;
+			packageProductDependencies = (
+				F327484B296B6C3F00D197CB /* FirebaseAuth */,
+				F327484D296B6C3F00D197CB /* FirebaseAuthCombine-Community */,
+				F327484F296B6C3F00D197CB /* FirebaseFirestore */,
+				F3274851296B6C3F00D197CB /* FirebaseFirestoreCombine-Community */,
+				F3274853296B6C3F00D197CB /* FirebaseFirestoreSwift */,
+				F3274858296B719F00D197CB /* FirebaseCrashlytics */,
+			);
 			productName = JimBuddy;
 			productReference = 3F51084C295C86790069F560 /* JimBuddy.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +247,9 @@
 				Base,
 			);
 			mainGroup = 3F510843295C86790069F560;
+			packageReferences = (
+				F327484A296B6C3F00D197CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3F51084D295C86790069F560 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +268,7 @@
 			files = (
 				3F510857295C867B0069F560 /* Preview Assets.xcassets in Resources */,
 				3F510854295C867B0069F560 /* Assets.xcassets in Resources */,
+				F3274856296B6F2200D197CB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +287,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F327485A296B71F200D197CB /* Crashlytics Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Crashlytics Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F510848295C86790069F560 /* Sources */ = {
@@ -328,7 +387,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -416,6 +475,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"JimBuddy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -429,6 +489,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.72072.JimBuddy.JimBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -457,6 +518,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.72072.JimBuddy.JimBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -577,6 +639,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F327484A296B6C3F00D197CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F327484B296B6C3F00D197CB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F327484A296B6C3F00D197CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F327484D296B6C3F00D197CB /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F327484A296B6C3F00D197CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		F327484F296B6C3F00D197CB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F327484A296B6C3F00D197CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F3274851296B6C3F00D197CB /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F327484A296B6C3F00D197CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		F3274853296B6C3F00D197CB /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F327484A296B6C3F00D197CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		F3274858296B719F00D197CB /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F327484A296B6C3F00D197CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F510844295C86790069F560 /* Project object */;
 }
