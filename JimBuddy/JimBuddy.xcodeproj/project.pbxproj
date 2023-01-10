@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F510850295C86790069F560 /* JimBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F51084F295C86790069F560 /* JimBuddyApp.swift */; };
-		3F510852295C86790069F560 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F510851295C86790069F560 /* ContentView.swift */; };
 		3F510854295C867B0069F560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F510853295C867B0069F560 /* Assets.xcassets */; };
 		3F510857295C867B0069F560 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F510856295C867B0069F560 /* Preview Assets.xcassets */; };
 		3F510861295C867B0069F560 /* JimBuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F510860295C867B0069F560 /* JimBuddyTests.swift */; };
@@ -21,6 +20,10 @@
 		F3274854296B6C3F00D197CB /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F3274853296B6C3F00D197CB /* FirebaseFirestoreSwift */; };
 		F3274856296B6F2200D197CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3274855296B6F2200D197CB /* GoogleService-Info.plist */; };
 		F3274859296B719F00D197CB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F3274858296B719F00D197CB /* FirebaseCrashlytics */; };
+		F36E01E9296DB192000851EE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36E01E8296DB192000851EE /* LoginView.swift */; };
+		F36E01ED296DB2DF000851EE /* InputTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36E01EC296DB2DF000851EE /* InputTextFieldView.swift */; };
+		F36E01EF296DBF77000851EE /* InputPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36E01EE296DBF77000851EE /* InputPasswordView.swift */; };
+		F36E01F1296DC250000851EE /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36E01F0296DC250000851EE /* ButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +46,6 @@
 /* Begin PBXFileReference section */
 		3F51084C295C86790069F560 /* JimBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JimBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F51084F295C86790069F560 /* JimBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimBuddyApp.swift; sourceTree = "<group>"; };
-		3F510851295C86790069F560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3F510853295C867B0069F560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F510856295C867B0069F560 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3F51085C295C867B0069F560 /* JimBuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JimBuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +54,10 @@
 		3F51086A295C867B0069F560 /* JimBuddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimBuddyUITests.swift; sourceTree = "<group>"; };
 		3F51086C295C867B0069F560 /* JimBuddyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimBuddyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F3274855296B6F2200D197CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F36E01E8296DB192000851EE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F36E01EC296DB2DF000851EE /* InputTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextFieldView.swift; sourceTree = "<group>"; };
+		F36E01EE296DBF77000851EE /* InputPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPasswordView.swift; sourceTree = "<group>"; };
+		F36E01F0296DC250000851EE /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +115,10 @@
 		3F51084E295C86790069F560 /* JimBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				F36E01EA296DB2B5000851EE /* Base */,
+				F36E01E6296DB173000851EE /* Login */,
 				F3274855296B6F2200D197CB /* GoogleService-Info.plist */,
 				3F51084F295C86790069F560 /* JimBuddyApp.swift */,
-				3F510851295C86790069F560 /* ContentView.swift */,
 				3F510853295C867B0069F560 /* Assets.xcassets */,
 				3F510855295C867B0069F560 /* Preview Content */,
 			);
@@ -148,6 +155,40 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F36E01E6296DB173000851EE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F36E01E7296DB17B000851EE /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F36E01E7296DB17B000851EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F36E01E8296DB192000851EE /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F36E01EA296DB2B5000851EE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F36E01EB296DB2BE000851EE /* Views */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F36E01EB296DB2BE000851EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F36E01EC296DB2DF000851EE /* InputTextFieldView.swift */,
+				F36E01EE296DBF77000851EE /* InputPasswordView.swift */,
+				F36E01F0296DC250000851EE /* ButtonView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,8 +357,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F510852295C86790069F560 /* ContentView.swift in Sources */,
+				F36E01EF296DBF77000851EE /* InputPasswordView.swift in Sources */,
+				F36E01E9296DB192000851EE /* LoginView.swift in Sources */,
+				F36E01F1296DC250000851EE /* ButtonView.swift in Sources */,
 				3F510850295C86790069F560 /* JimBuddyApp.swift in Sources */,
+				F36E01ED296DB2DF000851EE /* InputTextFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
