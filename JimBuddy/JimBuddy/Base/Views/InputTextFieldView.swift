@@ -13,20 +13,24 @@ struct InputTextFieldView: View {
     let placeholder: String
     let keyboardType: UIKeyboardType
     
+    private let textFieldLeadingPadding: CGFloat = 15
+    
     var body: some View {
         TextField(placeholder, text: $text)
+            .frame(maxWidth: .infinity, minHeight: 40)
+            .padding(.leading, textFieldLeadingPadding)
             .keyboardType(keyboardType)
-            .padding(.horizontal, 20)
-            .frame(minHeight: 50)
-            .textFieldStyle(.roundedBorder)
+            .background(
+                VStack {
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .stroke( Color.gray, lineWidth: 4)
+                }
+            )
     }
 }
 
 struct InputTextFieldView_Previews: PreviewProvider {
     static var previews: some View {
         InputTextFieldView(text: .constant(""), placeholder: "Email", keyboardType: .emailAddress)
-            .previewLayout(.sizeThatFits)
-            .previewDisplayName("Text Input Field")
-            .padding()
     }
 }

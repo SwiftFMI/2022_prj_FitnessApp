@@ -20,8 +20,8 @@ struct ButtonView: View {
     private let cornerRadius: CGFloat = 10
     
     internal init(title: String,
-                  background: Color = .green,
-                  foreground: Color = .gray,
+                  background: Color = Color(hex: "#e1fd71"),
+                  foreground: Color = Color(hex: "#282b2f"),
                   border: Color = .clear,
                   handler:@escaping ButtonView.ActionHandler) {
         self.title = title
@@ -43,7 +43,6 @@ struct ButtonView: View {
             RoundedRectangle(cornerRadius: cornerRadius)
             .stroke(border, lineWidth: 2)
         )
-        .padding(.horizontal, 20)
     }
 }
 

@@ -13,9 +13,15 @@ struct InputPasswordView: View {
     
     var body: some View {
         SecureField(placeholder, text: $password)
-            .textFieldStyle(.roundedBorder)
-            .frame(minHeight: 50)
-            .padding(.horizontal, 20)
+            .frame(maxWidth: .infinity, minHeight: 40)
+            .padding(.leading, 10)
+            .autocorrectionDisabled(true)
+            .background(
+                VStack {
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .stroke(Color.gray, lineWidth: 4)
+                }
+            )
     }
 }
 
