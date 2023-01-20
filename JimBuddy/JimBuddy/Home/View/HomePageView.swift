@@ -11,8 +11,19 @@ struct HomePageView: View {
     @EnvironmentObject var sessionService : SessionServiceImpl
     
     var body: some View {
-        ButtonView(title: "Logout") {
-            sessionService.logout()
+        TabView {
+            DiaryView()
+            .tabItem {
+                Label("Diary",systemImage: "fork.knife")
+            }
+            CalendarView()
+                .tabItem {
+                    Label("Calendar", systemImage: "calendar")
+                }
+            ProfileView()
+                .tabItem {
+                    Label("Profile", systemImage: "person.fill")
+                }
         }
     }
 }
