@@ -38,6 +38,9 @@
 		F3A7F06529768AB20091FE2E /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A7F06429768AB20091FE2E /* LoginCredentials.swift */; };
 		F3A7F06829768AEB0091FE2E /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A7F06729768AEB0091FE2E /* LoginService.swift */; };
 		F3A7F06B29768CDB0091FE2E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A7F06A29768CDB0091FE2E /* LoginViewModel.swift */; };
+		F3A7F06F2977E9310091FE2E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A7F06E2977E9310091FE2E /* ProfileView.swift */; };
+		F3A7F0732977E9A10091FE2E /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A7F0722977E9A10091FE2E /* DiaryView.swift */; };
+		F3A7F0772977EB0B0091FE2E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A7F0762977EB0B0091FE2E /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		F3A7F06429768AB20091FE2E /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
 		F3A7F06729768AEB0091FE2E /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		F3A7F06A29768CDB0091FE2E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F3A7F06E2977E9310091FE2E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F3A7F0722977E9A10091FE2E /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
+		F3A7F0762977EB0B0091FE2E /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,9 @@
 		3F51084E295C86790069F560 /* JimBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				F3A7F0742977EAF20091FE2E /* Calendar */,
+				F3A7F0702977E96C0091FE2E /* Diary */,
+				F3A7F06C2977E1710091FE2E /* Profile */,
 				F303A14829744DD7002E4B0C /* Session */,
 				F303A1392972B871002E4B0C /* Home */,
 				F303A12D2971BE9B002E4B0C /* Registration */,
@@ -344,6 +353,54 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		F3A7F06C2977E1710091FE2E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F3A7F06D2977E8F50091FE2E /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F3A7F06D2977E8F50091FE2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3A7F06E2977E9310091FE2E /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3A7F0702977E96C0091FE2E /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				F3A7F0712977E9750091FE2E /* View */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
+		F3A7F0712977E9750091FE2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3A7F0722977E9A10091FE2E /* DiaryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3A7F0742977EAF20091FE2E /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				F3A7F0752977EAF90091FE2E /* View */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		F3A7F0752977EAF90091FE2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3A7F0762977EB0B0091FE2E /* CalendarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -519,14 +576,17 @@
 				F303A1422972BAA0002E4B0C /* RegistrationService.swift in Sources */,
 				F303A13C2972B898002E4B0C /* HomePageView.swift in Sources */,
 				F303A14E29744FF8002E4B0C /* SessionService.swift in Sources */,
+				F3A7F0772977EB0B0091FE2E /* CalendarView.swift in Sources */,
 				F3A7F06B29768CDB0091FE2E /* LoginViewModel.swift in Sources */,
 				F303A1302971BECA002E4B0C /* RegisterView.swift in Sources */,
+				F3A7F0732977E9A10091FE2E /* DiaryView.swift in Sources */,
 				F3A7F06529768AB20091FE2E /* LoginCredentials.swift in Sources */,
 				F36E01F1296DC250000851EE /* ButtonView.swift in Sources */,
 				F303A1342971D4F6002E4B0C /* LoginModel.swift in Sources */,
 				F303A1472974478E002E4B0C /* RegistrationViewModel.swift in Sources */,
 				F303A13F2972B992002E4B0C /* RegistrationDetails.swift in Sources */,
 				3F510850295C86790069F560 /* JimBuddyApp.swift in Sources */,
+				F3A7F06F2977E9310091FE2E /* ProfileView.swift in Sources */,
 				F303A14B29744E0B002E4B0C /* SessionUserDetails.swift in Sources */,
 				F36E01ED296DB2DF000851EE /* InputTextFieldView.swift in Sources */,
 			);
