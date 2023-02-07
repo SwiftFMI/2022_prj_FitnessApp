@@ -20,10 +20,10 @@ struct ButtonView: View {
     private let cornerRadius: CGFloat = 10
     
     internal init(title: String,
-                  background: Color = Color(hex: "#e1fd71"),
-                  foreground: Color = Color(hex: "#282b2f"),
+                  background: Color = Colors.darkGrey,
+                  foreground: Color = .white,
                   border: Color = .clear,
-                  handler:@escaping ButtonView.ActionHandler) {
+                  handler: @escaping ButtonView.ActionHandler) {
         self.title = title
         self.background = background
         self.foreground = foreground
@@ -33,7 +33,8 @@ struct ButtonView: View {
     var body: some View {
         Button(action: handler) {
             Text(title)
-                .frame(maxWidth: .infinity, maxHeight: 50)
+                .frame(maxWidth: .infinity)
+                .frame(height: 50)
         }
         .background(background)
         .foregroundColor(foreground)

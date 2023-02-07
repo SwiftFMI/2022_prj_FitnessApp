@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-let hexForLightGreenColor = "#e3fd75"
-let hexForBlackColor = "#282b2f"
-
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
