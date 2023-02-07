@@ -32,7 +32,7 @@ struct JimBuddyApp: App {
                 case .loggedOut:
                     LoginView()
                 }
-            }
+            }.accentColor(Colors.darkGrey)
         }
     }
 }

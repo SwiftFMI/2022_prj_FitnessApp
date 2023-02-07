@@ -10,17 +10,17 @@ import SwiftUI
 struct InputPasswordView: View {
     @Binding var password: String
     let placeholder: String
-    
+
     var body: some View {
         SecureField(placeholder, text: $password)
             .frame(maxWidth: .infinity, minHeight: 40)
             .padding(.leading, 10)
             .autocorrectionDisabled(true)
             .background(
-                VStack {
-                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .stroke(Color.gray, lineWidth: 4)
-                }
+                RoundedRectangle(cornerRadius: 6)
+                    .stroke(Color.gray, lineWidth: 2)
+                    .background(RoundedRectangle(cornerRadius: 6)
+                        .fill(Color.white))
             )
     }
 }

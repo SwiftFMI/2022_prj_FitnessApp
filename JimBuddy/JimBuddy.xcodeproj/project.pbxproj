@@ -13,6 +13,7 @@
 		3F510861295C867B0069F560 /* JimBuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F510860295C867B0069F560 /* JimBuddyTests.swift */; };
 		3F51086B295C867B0069F560 /* JimBuddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F51086A295C867B0069F560 /* JimBuddyUITests.swift */; };
 		3F51086D295C867B0069F560 /* JimBuddyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F51086C295C867B0069F560 /* JimBuddyUITestsLaunchTests.swift */; };
+		3FA8E46129916F0E00423551 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8E46029916F0E00423551 /* Colors.swift */; };
 		F303A12C2971B744002E4B0C /* ColorHexExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F303A12B2971B744002E4B0C /* ColorHexExtenstion.swift */; };
 		F303A1302971BECA002E4B0C /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F303A12F2971BECA002E4B0C /* RegisterView.swift */; };
 		F303A1342971D4F6002E4B0C /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F303A1332971D4F5002E4B0C /* LoginModel.swift */; };
@@ -70,6 +71,7 @@
 		3F510866295C867B0069F560 /* JimBuddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JimBuddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F51086A295C867B0069F560 /* JimBuddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimBuddyUITests.swift; sourceTree = "<group>"; };
 		3F51086C295C867B0069F560 /* JimBuddyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimBuddyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3FA8E46029916F0E00423551 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F303A12B2971B744002E4B0C /* ColorHexExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHexExtenstion.swift; sourceTree = "<group>"; };
 		F303A12F2971BECA002E4B0C /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		F303A1332971D4F5002E4B0C /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -154,9 +156,9 @@
 				F3A7F06C2977E1710091FE2E /* Profile */,
 				F303A14829744DD7002E4B0C /* Session */,
 				F303A1392972B871002E4B0C /* Home */,
-				F303A12D2971BE9B002E4B0C /* Registration */,
 				F303A12A2971B65A002E4B0C /* Utils */,
 				F36E01EA296DB2B5000851EE /* Base */,
+				F303A12D2971BE9B002E4B0C /* Registration */,
 				F36E01E6296DB173000851EE /* Login */,
 				F3274855296B6F2200D197CB /* GoogleService-Info.plist */,
 				3F51084F295C86790069F560 /* JimBuddyApp.swift */,
@@ -191,9 +193,18 @@
 			path = JimBuddyUITests;
 			sourceTree = "<group>";
 		};
+		3FA8E45F29916E5700423551 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				3FA8E46029916F0E00423551 /* Colors.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		F303A12A2971B65A002E4B0C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3FA8E45F29916E5700423551 /* Constants */,
 				F303A12B2971B744002E4B0C /* ColorHexExtenstion.swift */,
 				F303A1372972B438002E4B0C /* CloseModifier.swift */,
 			);
@@ -569,6 +580,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3A7F06829768AEB0091FE2E /* LoginService.swift in Sources */,
+				3FA8E46129916F0E00423551 /* Colors.swift in Sources */,
 				F36E01EF296DBF77000851EE /* InputPasswordView.swift in Sources */,
 				F36E01E9296DB192000851EE /* LoginView.swift in Sources */,
 				F303A1382972B438002E4B0C /* CloseModifier.swift in Sources */,
