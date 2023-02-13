@@ -8,6 +8,11 @@
 import SwiftUI
 
 public enum Colors {
-    static let lightGreen: Color = Color(hex: "#d8fc55")
-    static let darkGrey: Color = Color(hex: "#272c30")
+    static let lightGreen: Color = .init(hex: "#d8fc55")
+    static let green: Color = .init(hex: "#30d158")
+
+    static let pink: Color = .init(hex: "#fa4d70")
+
+    static let darkGrey: Color = .init(hex: "#272c30")
+    static let lightGrey: Color = .init(hex: "#a6a6ab")
 }
