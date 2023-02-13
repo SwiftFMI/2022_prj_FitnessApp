@@ -37,11 +37,7 @@ struct LoginView: View {
                 }
 
                 NavigationLink(destination: RegisterView()) {
-                    ButtonView(title: "Sign up",
-                               background: .clear,
-                               foreground: Colors.darkGrey,
-                               border: Colors.darkGrey,
-                               handler: { /* empty closure */ })
+                    Text("Sign up")
                 }
             }
         }

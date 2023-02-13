@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct HomePageView: View {
-    @EnvironmentObject var sessionService : SessionServiceImpl
-    
+    @EnvironmentObject var sessionService: SessionServiceImpl
+
     var body: some View {
         TabView {
             DiaryView()
-            .tabItem {
-                Label("Diary",systemImage: "fork.knife")
-            }
+                .tabItem {
+                    Label("Diary", systemImage: "fork.knife")
+                }
             CalendarView()
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
@@ -25,6 +25,7 @@ struct HomePageView: View {
                     Label("Profile", systemImage: "person.fill")
                 }
         }
+        .accentColor(Colors.green)
     }
 }
 
