@@ -65,8 +65,20 @@ struct DiaryView: View {
                     }
                 }
                 .listStyle(.insetGrouped)
+<<<<<<< HEAD
                 .onAppear {
                     self.model.loadFoodItems()
+=======
+                .onAppear() {
+                    self.diaryService.fetchFoodEntries(completion: { result in
+                        switch result {
+                        case .success(let foodItems):
+                            self.foodItems = foodItems
+                        case .failure:
+                            break
+                        }
+                    })
+>>>>>>> db45387 (TMP)
                 }
             }
             .navigationTitle("Diary")
