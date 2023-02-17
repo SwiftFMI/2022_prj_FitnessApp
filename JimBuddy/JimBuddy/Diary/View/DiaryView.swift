@@ -17,7 +17,7 @@ struct DiaryView: View {
                     Section(header: Text("Calorie intake").textCase(nil)) {
                         CalorieProgressView(consumed: $model.consumedCalories)
                             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-
+                        
                     }.padding(.vertical, 10)
 
                     Section(header: Text("Breakfast").textCase(nil)) {
@@ -30,7 +30,7 @@ struct DiaryView: View {
                             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                             .padding(.horizontal, 10)
                     }
-
+                    
                     Section(header: Text("Lunch").textCase(nil)) {
                         ForEach(model.lunchItems.indices, id: \.self) { idx in
                             FoodEntryView(foodItem: self.$model.lunchItems[idx])
@@ -41,7 +41,7 @@ struct DiaryView: View {
                             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                             .padding(.horizontal, 10)
                     }
-
+                    
                     Section(header: Text("Dinner").textCase(nil)) {
                         ForEach(model.dinnerItems.indices, id: \.self) { idx in
                             FoodEntryView(foodItem: self.$model.dinnerItems[idx])
@@ -52,7 +52,7 @@ struct DiaryView: View {
                             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                             .padding(.horizontal, 10)
                     }
-
+                    
                     Section(header: Text("Snacks").textCase(nil)) {
                         ForEach(model.snackItems.indices, id: \.self) { idx in
                             FoodEntryView(foodItem: self.$model.snackItems[idx])
@@ -65,20 +65,8 @@ struct DiaryView: View {
                     }
                 }
                 .listStyle(.insetGrouped)
-<<<<<<< HEAD
                 .onAppear {
                     self.model.loadFoodItems()
-=======
-                .onAppear() {
-                    self.diaryService.fetchFoodEntries(completion: { result in
-                        switch result {
-                        case .success(let foodItems):
-                            self.foodItems = foodItems
-                        case .failure:
-                            break
-                        }
-                    })
->>>>>>> db45387 (TMP)
                 }
             }
             .navigationTitle("Diary")

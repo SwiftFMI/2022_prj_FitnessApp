@@ -43,6 +43,13 @@
 		F3274854296B6C3F00D197CB /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F3274853296B6C3F00D197CB /* FirebaseFirestoreSwift */; };
 		F3274856296B6F2200D197CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3274855296B6F2200D197CB /* GoogleService-Info.plist */; };
 		F3274859296B719F00D197CB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F3274858296B719F00D197CB /* FirebaseCrashlytics */; };
+		F33932C9297AF44500C309EA /* SearchFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33932C8297AF44500C309EA /* SearchFoodView.swift */; };
+		F33932D4297B131500C309EA /* CreateFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33932D3297B131500C309EA /* CreateFoodView.swift */; };
+		F33932D6297C699F00C309EA /* CreateFoodInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33932D5297C699F00C309EA /* CreateFoodInputField.swift */; };
+		F33932D9297D9FB900C309EA /* CreateFoodDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33932D8297D9FB900C309EA /* CreateFoodDetails.swift */; };
+		F33932DC297DA10C00C309EA /* CreateFoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33932DB297DA10C00C309EA /* CreateFoodService.swift */; };
+		F33932DF297DAAC100C309EA /* CreateFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33932DE297DAAC100C309EA /* CreateFoodViewModel.swift */; };
+		F3663FA429A1930D001166FF /* SearchFoodEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3663FA329A1930D001166FF /* SearchFoodEntryView.swift */; };
 		F36E01E9296DB192000851EE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36E01E8296DB192000851EE /* LoginView.swift */; };
 		F36E01ED296DB2DF000851EE /* InputTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36E01EC296DB2DF000851EE /* InputTextFieldView.swift */; };
 		F36E01EF296DBF77000851EE /* InputPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36E01EE296DBF77000851EE /* InputPasswordView.swift */; };
@@ -53,6 +60,10 @@
 		F3A7F06F2977E9310091FE2E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A7F06E2977E9310091FE2E /* ProfileView.swift */; };
 		F3A7F0732977E9A10091FE2E /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A7F0722977E9A10091FE2E /* DiaryView.swift */; };
 		F3A7F0772977EB0B0091FE2E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A7F0762977EB0B0091FE2E /* CalendarView.swift */; };
+		F3C4893D298FF62F00E2CE24 /* SearchFoodDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C4893C298FF62F00E2CE24 /* SearchFoodDetails.swift */; };
+		F3C48940298FFC1500E2CE24 /* SearchFoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C4893F298FFC1500E2CE24 /* SearchFoodService.swift */; };
+		F3C489432990556000E2CE24 /* SearchFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C489422990556000E2CE24 /* SearchFoodViewModel.swift */; };
+		F3C489452990562D00E2CE24 /* StateEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C489442990562D00E2CE24 /* StateEnums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +116,13 @@
 		F303A14A29744E0B002E4B0C /* SessionUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUserDetails.swift; sourceTree = "<group>"; };
 		F303A14D29744FF8002E4B0C /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		F3274855296B6F2200D197CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F33932C8297AF44500C309EA /* SearchFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodView.swift; sourceTree = "<group>"; };
+		F33932D3297B131500C309EA /* CreateFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFoodView.swift; sourceTree = "<group>"; };
+		F33932D5297C699F00C309EA /* CreateFoodInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFoodInputField.swift; sourceTree = "<group>"; };
+		F33932D8297D9FB900C309EA /* CreateFoodDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFoodDetails.swift; sourceTree = "<group>"; };
+		F33932DB297DA10C00C309EA /* CreateFoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFoodService.swift; sourceTree = "<group>"; };
+		F33932DE297DAAC100C309EA /* CreateFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFoodViewModel.swift; sourceTree = "<group>"; };
+		F3663FA329A1930D001166FF /* SearchFoodEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodEntryView.swift; sourceTree = "<group>"; };
 		F36E01E8296DB192000851EE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F36E01EC296DB2DF000851EE /* InputTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextFieldView.swift; sourceTree = "<group>"; };
 		F36E01EE296DBF77000851EE /* InputPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPasswordView.swift; sourceTree = "<group>"; };
@@ -115,6 +133,10 @@
 		F3A7F06E2977E9310091FE2E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F3A7F0722977E9A10091FE2E /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		F3A7F0762977EB0B0091FE2E /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		F3C4893C298FF62F00E2CE24 /* SearchFoodDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodDetails.swift; sourceTree = "<group>"; };
+		F3C4893F298FFC1500E2CE24 /* SearchFoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodService.swift; sourceTree = "<group>"; };
+		F3C489422990556000E2CE24 /* SearchFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodViewModel.swift; sourceTree = "<group>"; };
+		F3C489442990562D00E2CE24 /* StateEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateEnums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +203,7 @@
 				3F510869295C867B0069F560 /* JimBuddyUITests */,
 				3F51084D295C86790069F560 /* Products */,
 				F3274857296B719F00D197CB /* Frameworks */,
+				F3C6C16D29A02E7000B0AA1C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,6 +220,8 @@
 		3F51084E295C86790069F560 /* JimBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				F33932D1297B12F500C309EA /* CreateFood */,
+				F33932C6297AF41E00C309EA /* SearchFood */,
 				F3A7F0742977EAF20091FE2E /* Calendar */,
 				F3A7F0702977E96C0091FE2E /* Diary */,
 				F3A7F06C2977E1710091FE2E /* Profile */,
@@ -276,15 +301,13 @@
 		F303A12A2971B65A002E4B0C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				3F722C2429A10B5F00EE6E22 /* Errors */,
-=======
->>>>>>> db45387 (TMP)
 				3F05A827299EC7CA00CBD42D /* Date */,
 				3FEEA8D22999731100A355F9 /* Navigation */,
 				3FA8E45F29916E5700423551 /* Constants */,
 				F303A12B2971B744002E4B0C /* ColorHexExtenstion.swift */,
 				F303A1372972B438002E4B0C /* CloseModifier.swift */,
+				F3C489442990562D00E2CE24 /* StateEnums.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -380,6 +403,68 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F33932C6297AF41E00C309EA /* SearchFood */ = {
+			isa = PBXGroup;
+			children = (
+				F3C489412990553E00E2CE24 /* ViewModel */,
+				F3C4893E298FFBFA00E2CE24 /* Service */,
+				F3C4893B298FF5B700E2CE24 /* Model */,
+				F33932C7297AF42600C309EA /* View */,
+			);
+			path = SearchFood;
+			sourceTree = "<group>";
+		};
+		F33932C7297AF42600C309EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F33932C8297AF44500C309EA /* SearchFoodView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F33932D1297B12F500C309EA /* CreateFood */ = {
+			isa = PBXGroup;
+			children = (
+				F33932DD297DAA1E00C309EA /* ViewModel */,
+				F33932DA297DA0D600C309EA /* Service */,
+				F33932D7297D9F5B00C309EA /* Model */,
+				F33932D2297B12FE00C309EA /* View */,
+			);
+			path = CreateFood;
+			sourceTree = "<group>";
+		};
+		F33932D2297B12FE00C309EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F33932D3297B131500C309EA /* CreateFoodView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F33932D7297D9F5B00C309EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F33932D8297D9FB900C309EA /* CreateFoodDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F33932DA297DA0D600C309EA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F33932DB297DA10C00C309EA /* CreateFoodService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F33932DD297DAA1E00C309EA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F33932DE297DAAC100C309EA /* CreateFoodViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F36E01E6296DB173000851EE /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +499,8 @@
 				F36E01EC296DB2DF000851EE /* InputTextFieldView.swift */,
 				F36E01EE296DBF77000851EE /* InputPasswordView.swift */,
 				F36E01F0296DC250000851EE /* ButtonView.swift */,
+				F33932D5297C699F00C309EA /* CreateFoodInputField.swift */,
+				F3663FA329A1930D001166FF /* SearchFoodEntryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -494,6 +581,37 @@
 				F3A7F0762977EB0B0091FE2E /* CalendarView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F3C4893B298FF5B700E2CE24 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F3C4893C298FF62F00E2CE24 /* SearchFoodDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F3C4893E298FFBFA00E2CE24 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F3C4893F298FFC1500E2CE24 /* SearchFoodService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F3C489412990553E00E2CE24 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3C489422990556000E2CE24 /* SearchFoodViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F3C6C16D29A02E7000B0AA1C /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -666,20 +784,25 @@
 				3FEEA8D42999732300A355F9 /* NavigationConfiguration.swift in Sources */,
 				F3A7F06829768AEB0091FE2E /* LoginService.swift in Sources */,
 				3FA8E46129916F0E00423551 /* Colors.swift in Sources */,
+				F3C48940298FFC1500E2CE24 /* SearchFoodService.swift in Sources */,
 				F36E01EF296DBF77000851EE /* InputPasswordView.swift in Sources */,
 				F36E01E9296DB192000851EE /* LoginView.swift in Sources */,
 				3F722C2929A118F200EE6E22 /* FoodItemViewModel.swift in Sources */,
+				F3663FA429A1930D001166FF /* SearchFoodEntryView.swift in Sources */,
 				F303A1382972B438002E4B0C /* CloseModifier.swift in Sources */,
 				F303A12C2971B744002E4B0C /* ColorHexExtenstion.swift in Sources */,
 				3F722C2129A109DB00EE6E22 /* ConsumptionTime.swift in Sources */,
 				3FEEA8D12999691300A355F9 /* FoodEntryView.swift in Sources */,
+				F3C489432990556000E2CE24 /* SearchFoodViewModel.swift in Sources */,
 				F303A1422972BAA0002E4B0C /* RegistrationService.swift in Sources */,
 				3F722C2629A10B7100EE6E22 /* FirebaseErrors.swift in Sources */,
+				F33932D4297B131500C309EA /* CreateFoodView.swift in Sources */,
 				F303A13C2972B898002E4B0C /* HomePageView.swift in Sources */,
 				3F722C2329A10A2E00EE6E22 /* MeasuringUnits.swift in Sources */,
 				F303A14E29744FF8002E4B0C /* SessionService.swift in Sources */,
 				F3A7F0772977EB0B0091FE2E /* CalendarView.swift in Sources */,
 				F3A7F06B29768CDB0091FE2E /* LoginViewModel.swift in Sources */,
+				F33932C9297AF44500C309EA /* SearchFoodView.swift in Sources */,
 				F303A1302971BECA002E4B0C /* RegisterView.swift in Sources */,
 				F3A7F0732977E9A10091FE2E /* DiaryView.swift in Sources */,
 				3F05A829299EC7D900CBD42D /* DateExtension.swift in Sources */,
@@ -688,10 +811,16 @@
 				3F2AAAD6299AC60A00BFEEB3 /* CalorieProgressView.swift in Sources */,
 				3F05A825299EC75C00CBD42D /* DiaryService.swift in Sources */,
 				F303A1342971D4F6002E4B0C /* LoginModel.swift in Sources */,
+				F33932DF297DAAC100C309EA /* CreateFoodViewModel.swift in Sources */,
+				F33932DC297DA10C00C309EA /* CreateFoodService.swift in Sources */,
+				F33932D6297C699F00C309EA /* CreateFoodInputField.swift in Sources */,
 				F303A1472974478E002E4B0C /* RegistrationViewModel.swift in Sources */,
 				F303A13F2972B992002E4B0C /* RegistrationDetails.swift in Sources */,
 				3F510850295C86790069F560 /* JimBuddyApp.swift in Sources */,
 				3F05A821299EBC7F00CBD42D /* FoodItem.swift in Sources */,
+				F3C4893D298FF62F00E2CE24 /* SearchFoodDetails.swift in Sources */,
+				F33932D9297D9FB900C309EA /* CreateFoodDetails.swift in Sources */,
+				F3C489452990562D00E2CE24 /* StateEnums.swift in Sources */,
 				F3A7F06F2977E9310091FE2E /* ProfileView.swift in Sources */,
 				F303A14B29744E0B002E4B0C /* SessionUserDetails.swift in Sources */,
 				F36E01ED296DB2DF000851EE /* InputTextFieldView.swift in Sources */,

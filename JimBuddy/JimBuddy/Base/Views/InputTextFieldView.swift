@@ -26,7 +26,6 @@ struct InputTextFieldView: View {
                     .background(RoundedRectangle(cornerRadius: 6)
                         .fill(Color.white))
             )
-
     }
 }
 
