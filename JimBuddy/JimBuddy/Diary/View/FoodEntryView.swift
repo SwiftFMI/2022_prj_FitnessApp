@@ -8,27 +8,23 @@
 import SwiftUI
 
 struct FoodEntryView: View {
+    @Binding var foodItem: FoodItem
+
     var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading) {
-                Text("Boiled egg")
+                Text(foodItem.name)
                     .foregroundColor(Colors.darkGrey)
                 HStack(alignment: .center) {
-                    Text("2, piece")
+                    Text("\(foodItem.quantity), \(foodItem.measuringUnits.rawValue)")
                         .font(.caption2)
                         .foregroundColor(Colors.lightGrey)
                 }
             }
             Spacer()
-            Text("140 Cal")
+            Text("\(foodItem.calories) kCal")
                 .font(.caption)
                 .foregroundColor(Colors.darkGrey)
         }
-    }
-}
-
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        FoodEntryView()
     }
 }

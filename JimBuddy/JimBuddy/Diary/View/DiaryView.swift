@@ -8,45 +8,74 @@
 import SwiftUI
 
 struct DiaryView: View {
+    @StateObject private var model: FoodItemViewModel = .init()
+
     var body: some View {
         NavigationView {
             VStack {
                 List {
                     Section(header: Text("Calorie intake").textCase(nil)) {
-                        CalorieProgressView()
+                        CalorieProgressView(consumed: $model.consumedCalories)
                             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
 
                     }.padding(.vertical, 10)
 
                     Section(header: Text("Breakfast").textCase(nil)) {
-                        FoodEntryView()
-                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            .padding(.horizontal, 10)
-
-                        FoodEntryView()
+                        ForEach(model.breakfastItems.indices, id: \.self) { idx in
+                            FoodEntryView(foodItem: self.$model.breakfastItems[idx])
+                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .padding(.horizontal, 10)
+                        }
+                        AddFoodView()
                             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                             .padding(.horizontal, 10)
                     }
 
                     Section(header: Text("Lunch").textCase(nil)) {
-                        Text("No entries yet")
+                        ForEach(model.lunchItems.indices, id: \.self) { idx in
+                            FoodEntryView(foodItem: self.$model.lunchItems[idx])
+                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .padding(.horizontal, 10)
+                        }
+                        AddFoodView()
+                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                            .padding(.horizontal, 10)
                     }
 
                     Section(header: Text("Dinner").textCase(nil)) {
-                        Text("No entries yet")
+                        ForEach(model.dinnerItems.indices, id: \.self) { idx in
+                            FoodEntryView(foodItem: self.$model.dinnerItems[idx])
+                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .padding(.horizontal, 10)
+                        }
+                        AddFoodView()
+                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                            .padding(.horizontal, 10)
                     }
 
                     Section(header: Text("Snacks").textCase(nil)) {
-                        Text("No entries yet")
+                        ForEach(model.snackItems.indices, id: \.self) { idx in
+                            FoodEntryView(foodItem: self.$model.snackItems[idx])
+                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .padding(.horizontal, 10)
+                        }
+                        AddFoodView()
+                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                            .padding(.horizontal, 10)
                     }
                 }
                 .listStyle(.insetGrouped)
+                .onAppear {
+                    self.model.loadFoodItems()
+                }
             }
             .navigationTitle("Diary")
             .navigationBarTitleDisplayMode(.inline)
             .background(NavigationConfiguration())
             .toolbar {
-                Button(action: {}) {
+                NavigationLink {
+                    ProfileView()
+                } label: {
                     Image(systemName: "plus")
                         .tint(.white)
                 }
