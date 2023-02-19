@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ProfileDetailsView: View {
+    @Binding var gender: Gender?
+    @Binding var firstName: String
+    @Binding var lastName: String
+    @Binding var image: UIImage
+
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 ZStack(alignment: .bottomTrailing) {
-                    Image("default_profile")
+                    Image(uiImage: image)
                         .resizable()
                         .frame(width: 125, height: 125)
                         .clipShape(Circle())
@@ -31,7 +36,7 @@ struct ProfileDetailsView: View {
 
                 Spacer()
             }
-            Text("Simeon Hristov")
+            Text("\(firstName) \(lastName)")
                 .foregroundColor(Colors.darkGrey)
                 .font(.title3)
                 .padding(.top, 20)
@@ -42,15 +47,15 @@ struct ProfileDetailsView: View {
                 .textCase(.uppercase)
                 .font(.caption)
 
-            Text("♂♀")
-                .foregroundColor(Colors.darkGrey)
-                .font(.title3)
-        }
-    }
-}
+            HStack(alignment: .center) {
+                Text("21")
+                    .foregroundColor(Colors.darkGrey)
 
-struct ProfileDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileDetailsView()
+                Image(gender?.iconName ?? "")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .scaledToFit()
+            }
+        }
     }
 }

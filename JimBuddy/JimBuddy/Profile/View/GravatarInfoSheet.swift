@@ -10,13 +10,13 @@ import SwiftUI
 
 struct GravatarInfoSheet: View {
     @Environment(\.dismiss) var dismiss
-
+    @Binding var image: UIImage
     var body: some View {
         NavigationView {
             List {
                 HStack {
                     Spacer()
-                    Image("default_profile")
+                    Image(uiImage: image)
                         .resizable()
                         .frame(width: 125, height: 125)
                         .clipShape(Circle())

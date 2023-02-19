@@ -29,6 +29,12 @@
 		3F722C3F29A222C700EE6E22 /* ProfileDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C3E29A222C700EE6E22 /* ProfileDetailsView.swift */; };
 		3F722C4129A24CD600EE6E22 /* StatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C4029A24CD600EE6E22 /* StatType.swift */; };
 		3F722C4429A2576D00EE6E22 /* GravatarInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C4329A2576D00EE6E22 /* GravatarInfoSheet.swift */; };
+		3F722C4729A28EC100EE6E22 /* PersonalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C4629A28EC100EE6E22 /* PersonalDataService.swift */; };
+		3F722C4A29A2A7F300EE6E22 /* PersonalDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C4929A2A7F300EE6E22 /* PersonalDataViewModel.swift */; };
+		3F722C4C29A2A8CA00EE6E22 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C4B29A2A8CA00EE6E22 /* Gender.swift */; };
+		3F722C4E29A2B52000EE6E22 /* GravatarImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C4D29A2B52000EE6E22 /* GravatarImageService.swift */; };
+		3F722C5129A2B65E00EE6E22 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C5029A2B65E00EE6E22 /* StringExtension.swift */; };
+		3F722C5329A2B69800EE6E22 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C5229A2B69800EE6E22 /* APIError.swift */; };
 		3FA8E46129916F0E00423551 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8E46029916F0E00423551 /* Colors.swift */; };
 		3FEEA8D12999691300A355F9 /* FoodEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEA8D02999691300A355F9 /* FoodEntryView.swift */; };
 		F303A12C2971B744002E4B0C /* ColorHexExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F303A12B2971B744002E4B0C /* ColorHexExtenstion.swift */; };
@@ -105,6 +111,12 @@
 		3F722C3E29A222C700EE6E22 /* ProfileDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsView.swift; sourceTree = "<group>"; };
 		3F722C4029A24CD600EE6E22 /* StatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatType.swift; sourceTree = "<group>"; };
 		3F722C4329A2576D00EE6E22 /* GravatarInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravatarInfoSheet.swift; sourceTree = "<group>"; };
+		3F722C4629A28EC100EE6E22 /* PersonalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataService.swift; sourceTree = "<group>"; };
+		3F722C4929A2A7F300EE6E22 /* PersonalDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataViewModel.swift; sourceTree = "<group>"; };
+		3F722C4B29A2A8CA00EE6E22 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		3F722C4D29A2B52000EE6E22 /* GravatarImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravatarImageService.swift; sourceTree = "<group>"; };
+		3F722C5029A2B65E00EE6E22 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3F722C5229A2B69800EE6E22 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		3FA8E46029916F0E00423551 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3FEEA8D02999691300A355F9 /* FoodEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryView.swift; sourceTree = "<group>"; };
 		F303A12B2971B744002E4B0C /* ColorHexExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHexExtenstion.swift; sourceTree = "<group>"; };
@@ -258,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				3F722C2529A10B7100EE6E22 /* FirebaseErrors.swift */,
+				3F722C5229A2B69800EE6E22 /* APIError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -300,8 +313,34 @@
 			isa = PBXGroup;
 			children = (
 				3F722C4029A24CD600EE6E22 /* StatType.swift */,
+				3F722C4B29A2A8CA00EE6E22 /* Gender.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3F722C4529A28E9400EE6E22 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3F722C4629A28EC100EE6E22 /* PersonalDataService.swift */,
+				3F722C4D29A2B52000EE6E22 /* GravatarImageService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3F722C4829A2A7D900EE6E22 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F722C4929A2A7F300EE6E22 /* PersonalDataViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3F722C4F29A2B64D00EE6E22 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				3F722C5029A2B65E00EE6E22 /* StringExtension.swift */,
+			);
+			path = String;
 			sourceTree = "<group>";
 		};
 		3FA8E45F29916E5700423551 /* Constants */ = {
@@ -317,6 +356,7 @@
 		F303A12A2971B65A002E4B0C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3F722C4F29A2B64D00EE6E22 /* String */,
 				3F722C2429A10B5F00EE6E22 /* Errors */,
 				3F05A827299EC7CA00CBD42D /* Date */,
 				3FA8E45F29916E5700423551 /* Constants */,
@@ -482,6 +522,8 @@
 		F3A7F06C2977E1710091FE2E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				3F722C4829A2A7D900EE6E22 /* ViewModel */,
+				3F722C4529A28E9400EE6E22 /* Service */,
 				3F722C4229A24CDB00EE6E22 /* Model */,
 				F3A7F06D2977E8F50091FE2E /* View */,
 			);
@@ -707,11 +749,15 @@
 				3F722C3129A145F100EE6E22 /* Activity.swift in Sources */,
 				F3A7F06829768AEB0091FE2E /* LoginService.swift in Sources */,
 				3FA8E46129916F0E00423551 /* Colors.swift in Sources */,
+				3F722C4729A28EC100EE6E22 /* PersonalDataService.swift in Sources */,
 				F36E01EF296DBF77000851EE /* InputPasswordView.swift in Sources */,
 				3F722C4129A24CD600EE6E22 /* StatType.swift in Sources */,
+				3F722C4C29A2A8CA00EE6E22 /* Gender.swift in Sources */,
 				F36E01E9296DB192000851EE /* LoginView.swift in Sources */,
+				3F722C5329A2B69800EE6E22 /* APIError.swift in Sources */,
 				3F722C2929A118F200EE6E22 /* FoodItemViewModel.swift in Sources */,
 				F303A1382972B438002E4B0C /* CloseModifier.swift in Sources */,
+				3F722C4E29A2B52000EE6E22 /* GravatarImageService.swift in Sources */,
 				3F722C3629A146E900EE6E22 /* HealthKitService.swift in Sources */,
 				F303A12C2971B744002E4B0C /* ColorHexExtenstion.swift in Sources */,
 				3F722C2129A109DB00EE6E22 /* ConsumptionTime.swift in Sources */,
@@ -721,6 +767,7 @@
 				F303A13C2972B898002E4B0C /* HomePageView.swift in Sources */,
 				3F722C2329A10A2E00EE6E22 /* MeasuringUnits.swift in Sources */,
 				F303A14E29744FF8002E4B0C /* SessionService.swift in Sources */,
+				3F722C5129A2B65E00EE6E22 /* StringExtension.swift in Sources */,
 				F3A7F0772977EB0B0091FE2E /* CalendarView.swift in Sources */,
 				F3A7F06B29768CDB0091FE2E /* LoginViewModel.swift in Sources */,
 				F303A1302971BECA002E4B0C /* RegisterView.swift in Sources */,
@@ -731,6 +778,7 @@
 				F36E01F1296DC250000851EE /* ButtonView.swift in Sources */,
 				3F722C3329A1465900EE6E22 /* HealthStat.swift in Sources */,
 				3F722C3F29A222C700EE6E22 /* ProfileDetailsView.swift in Sources */,
+				3F722C4A29A2A7F300EE6E22 /* PersonalDataViewModel.swift in Sources */,
 				3F2AAAD6299AC60A00BFEEB3 /* CalorieProgressView.swift in Sources */,
 				3F05A825299EC75C00CBD42D /* DiaryService.swift in Sources */,
 				F303A1342971D4F6002E4B0C /* LoginModel.swift in Sources */,
