@@ -10,12 +10,16 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject var sessionService: SessionServiceImpl
     @State private var showGravatarInfoSheet = false
+    @StateObject private var personalDataViewModel: PersonalDataViewModel = .init()
 
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
                 List {
-                    ProfileDetailsView()
+                    ProfileDetailsView(gender: $personalDataViewModel.gender,
+                                       firstName: $personalDataViewModel.firstName,
+                                       lastName: $personalDataViewModel.lastName,
+                                       image: $personalDataViewModel.userImage)
                         .listRowSeparator(.hidden)
                         .padding(.top, 40)
                         .gesture(TapGesture().onEnded { _ in
@@ -68,7 +72,10 @@ struct ProfileView: View {
 //                }
             }
             .sheet(isPresented: $showGravatarInfoSheet) {
-                GravatarInfoSheet()
+                GravatarInfoSheet(image: $personalDataViewModel.userImage)
+            }
+            .onAppear {
+                personalDataViewModel.loadFullData()
             }
         }
     }
