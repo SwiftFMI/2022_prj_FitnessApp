@@ -74,7 +74,7 @@ struct DiaryView: View {
             .background(NavigationConfiguration())
             .toolbar {
                 NavigationLink {
-                    ProfileView()
+                    CalendarView()
                 } label: {
                     Image(systemName: "plus")
                         .tint(.white)

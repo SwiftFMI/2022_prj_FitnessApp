@@ -43,8 +43,8 @@ private extension SessionServiceImpl {
         
         handler = Auth.auth()
             .addStateDidChangeListener({ [weak self] res, user in
-                guard let self = self else { return }
-                self.state = user == nil ? .loggedOut : .loggedIn
+                guard let strongSelf = self else { return }
+                strongSelf.state = user == nil ? .loggedOut : .loggedIn
             })
     }
     
