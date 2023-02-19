@@ -22,6 +22,9 @@
 		3F722C2629A10B7100EE6E22 /* FirebaseErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C2529A10B7100EE6E22 /* FirebaseErrors.swift */; };
 		3F722C2929A118F200EE6E22 /* FoodItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C2829A118F200EE6E22 /* FoodItemViewModel.swift */; };
 		3F722C2B29A129D300EE6E22 /* AddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C2A29A129D300EE6E22 /* AddFoodView.swift */; };
+		3F722C3129A145F100EE6E22 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C3029A145F100EE6E22 /* Activity.swift */; };
+		3F722C3329A1465900EE6E22 /* HealthStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C3229A1465900EE6E22 /* HealthStat.swift */; };
+		3F722C3629A146E900EE6E22 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C3529A146E900EE6E22 /* HealthKitService.swift */; };
 		3FA8E46129916F0E00423551 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8E46029916F0E00423551 /* Colors.swift */; };
 		3FEEA8D12999691300A355F9 /* FoodEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEA8D02999691300A355F9 /* FoodEntryView.swift */; };
 		3FEEA8D42999732300A355F9 /* NavigationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEA8D32999732300A355F9 /* NavigationConfiguration.swift */; };
@@ -91,6 +94,10 @@
 		3F722C2529A10B7100EE6E22 /* FirebaseErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseErrors.swift; sourceTree = "<group>"; };
 		3F722C2829A118F200EE6E22 /* FoodItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemViewModel.swift; sourceTree = "<group>"; };
 		3F722C2A29A129D300EE6E22 /* AddFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodView.swift; sourceTree = "<group>"; };
+		3F722C2C29A1432C00EE6E22 /* JimBuddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JimBuddy.entitlements; sourceTree = "<group>"; };
+		3F722C3029A145F100EE6E22 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		3F722C3229A1465900EE6E22 /* HealthStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStat.swift; sourceTree = "<group>"; };
+		3F722C3529A146E900EE6E22 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
 		3FA8E46029916F0E00423551 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3FEEA8D02999691300A355F9 /* FoodEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryView.swift; sourceTree = "<group>"; };
 		3FEEA8D32999732300A355F9 /* NavigationConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfiguration.swift; sourceTree = "<group>"; };
@@ -197,6 +204,8 @@
 		3F51084E295C86790069F560 /* JimBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				3F722C2E29A145AA00EE6E22 /* Health */,
+				3F722C2C29A1432C00EE6E22 /* JimBuddy.entitlements */,
 				F3A7F0742977EAF20091FE2E /* Calendar */,
 				F3A7F0702977E96C0091FE2E /* Diary */,
 				F3A7F06C2977E1710091FE2E /* Profile */,
@@ -253,6 +262,32 @@
 				3F722C2829A118F200EE6E22 /* FoodItemViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3F722C2E29A145AA00EE6E22 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				3F722C3429A146DA00EE6E22 /* Service */,
+				3F722C2F29A145C500EE6E22 /* Model */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
+		3F722C2F29A145C500EE6E22 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F722C3029A145F100EE6E22 /* Activity.swift */,
+				3F722C3229A1465900EE6E22 /* HealthStat.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F722C3429A146DA00EE6E22 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3F722C3529A146E900EE6E22 /* HealthKitService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		3FA8E45F29916E5700423551 /* Constants */ = {
@@ -660,6 +695,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F722C3129A145F100EE6E22 /* Activity.swift in Sources */,
 				3FEEA8D42999732300A355F9 /* NavigationConfiguration.swift in Sources */,
 				F3A7F06829768AEB0091FE2E /* LoginService.swift in Sources */,
 				3FA8E46129916F0E00423551 /* Colors.swift in Sources */,
@@ -667,6 +703,7 @@
 				F36E01E9296DB192000851EE /* LoginView.swift in Sources */,
 				3F722C2929A118F200EE6E22 /* FoodItemViewModel.swift in Sources */,
 				F303A1382972B438002E4B0C /* CloseModifier.swift in Sources */,
+				3F722C3629A146E900EE6E22 /* HealthKitService.swift in Sources */,
 				F303A12C2971B744002E4B0C /* ColorHexExtenstion.swift in Sources */,
 				3F722C2129A109DB00EE6E22 /* ConsumptionTime.swift in Sources */,
 				3FEEA8D12999691300A355F9 /* FoodEntryView.swift in Sources */,
@@ -682,6 +719,7 @@
 				3F05A829299EC7D900CBD42D /* DateExtension.swift in Sources */,
 				F3A7F06529768AB20091FE2E /* LoginCredentials.swift in Sources */,
 				F36E01F1296DC250000851EE /* ButtonView.swift in Sources */,
+				3F722C3329A1465900EE6E22 /* HealthStat.swift in Sources */,
 				3F2AAAD6299AC60A00BFEEB3 /* CalorieProgressView.swift in Sources */,
 				3F05A825299EC75C00CBD42D /* DiaryService.swift in Sources */,
 				F303A1342971D4F6002E4B0C /* LoginModel.swift in Sources */,
@@ -848,12 +886,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JimBuddy/JimBuddy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"JimBuddy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Need access to share health stats";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -878,11 +918,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JimBuddy/JimBuddy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"JimBuddy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Need access to share health stats";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
