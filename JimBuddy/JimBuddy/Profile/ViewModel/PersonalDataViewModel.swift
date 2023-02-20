@@ -5,8 +5,9 @@
 //  Created by Simeon Hristov on 19.02.23.
 //
 
-import Foundation
+import HealthKit
 import FirebaseAuth
+import Foundation
 import UIKit
 
 final class PersonalDataViewModel: ObservableObject {
@@ -18,13 +19,14 @@ final class PersonalDataViewModel: ObservableObject {
     @Published var lastName: String = "User"
     @Published var email: String? = nil
 
-    @Published var userImage: UIImage = UIImage(named: "default_profile") ?? UIImage()
+    @Published var userImage: UIImage = .init(named: "default_profile") ?? UIImage()
 
+    @Published var healthSamples: [(stat: StatType, value: String)] = .init()
     @Published var displayError: Bool = false
-
 
     func loadFullData() {
         loadPersonalCharacteristics()
+        loadQuantityProperties()
         loadUserData()
         loadImage()
     }
@@ -60,7 +62,7 @@ final class PersonalDataViewModel: ObservableObject {
                 strongSelf.firstName = userData.firstName
                 strongSelf.lastName = userData.lastName
                 strongSelf.email = userData.email
-            case .failure(_):
+            case .failure:
                 strongSelf.displayError = true
             }
         }
@@ -72,14 +74,23 @@ final class PersonalDataViewModel: ObservableObject {
         }
 
         GravatarImageService.shared.loadImage(for: email) { [weak self] result in
-            switch result {
-            case .success(let image):
-                self?.userImage = image
-            case .failure:
-                self?.userImage = UIImage(named: "default_profile") ?? UIImage()
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let image):
+                    self?.userImage = image
+                case .failure:
+                    self?.userImage = UIImage(named: "default_profile") ?? UIImage()
+                }
             }
         }
     }
-    
-}
 
+    func loadQuantityProperties() {
+        PersonalDataService.shared.getQuantitySamples { [weak self] result in
+            self?.healthSamples = result.sorted(by: { lhs, rhs in
+                lhs.stat < rhs.stat
+            })
+            print("-->",result)
+        }
+    }
+}

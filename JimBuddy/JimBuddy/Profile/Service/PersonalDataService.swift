@@ -36,7 +36,6 @@ class PersonalDataService {
 
     func getPersonalCharacteristicsHealthKit(completion: @escaping (Result<(age: Int, gender: String), Error>) -> Void) {
         do {
-
             // try to get characteristics
             // if no authorization throws
             let birthdayComponents = try healthKit.dateOfBirthComponents()
@@ -77,7 +76,6 @@ class PersonalDataService {
             completion(.success((age: age, gender: genderString)))
             saveHealthDataInFirebase(age: age, gender: genderString)
         } catch {
-
             // check if data is already in firebase
             getPersonalCharacteristicsFirebase { result in
                 completion(result)
@@ -147,6 +145,93 @@ class PersonalDataService {
     }
 
     func fetchImage(completion: @escaping (Result<UIImage, Error>) -> Void) {}
+
+    func getQuantitySamples(completion: @escaping ([(stat: StatType, value: String)]) -> Void) {
+        // something like a semaphore
+        // needed to assure all data has been fetched before returning it
+        let dispatchGroup = DispatchGroup()
+        var sampleData: [(stat: StatType, value: String)] = .init()
+
+        for (stat, sample) in StatType.allTypes {
+            dispatchGroup.enter()
+            guard let sample = sample else {
+                dispatchGroup.leave()
+                continue
+            }
+
+            getSample(for: sample) { [weak self ] result in
+                guard let strongSelf = self else {
+                    return
+                }
+                switch result {
+                case .success(let quantitySample):
+                    let value = strongSelf.procesSample(sample: quantitySample, type: stat)
+                    sampleData.append((stat: stat, value: value))
+                case .failure:
+                    break // ignore failed sampleQueries
+                }
+                dispatchGroup.leave()
+            }
+        }
+
+        // return samples for which we have received data
+        dispatchGroup.notify(queue: .main) {
+            completion(sampleData)
+        }
+    }
+
+    func getSample(for sampleType: HKSampleType,
+                   completion: @escaping (Result<HKQuantitySample, Error>) -> Void)
+    {
+        // 1. Use HKQuery to load the most recent samples.
+        let mostRecentPredicate = HKQuery.predicateForSamples(withStart: Date.distantPast,
+                                                              end: Date(),
+                                                              options: .strictEndDate)
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate,
+                                              ascending: false)
+
+        let limit = 1
+
+        let sampleQuery = HKSampleQuery(sampleType: sampleType,
+                                        predicate: mostRecentPredicate,
+                                        limit: limit,
+                                        sortDescriptors: [sortDescriptor]) { _, samples, _ in
+            guard let samples = samples,
+                  let mostRecentSample = samples.first as? HKQuantitySample
+            else {
+                completion(.failure(APIError.otherProblem))
+                return
+            }
+
+            completion(.success(mostRecentSample))
+        }
+
+        healthKit.execute(sampleQuery)
+    }
+
+    private func procesSample(sample: HKQuantitySample, type: StatType) -> String {
+        let result: Double
+        switch type {
+        case .steps:
+            result = sample.quantity.doubleValue(for: .count())
+            return String(format: "%.0f", result)
+        case .caloriesBurned:
+            result = sample.quantity.doubleValue(for: .kilocalorie())
+            return String(format: "%.0f kCal", result)
+        case .bodyWeight:
+            result = sample.quantity.doubleValue(for: .gram())
+            return String(format: "%.1f kg", result / 1000)
+        case .height:
+            result = sample.quantity.doubleValue(for: .meter())
+            return String(format: "%.2f m", result)
+        case .exerciseTime:
+            result = sample.quantity.doubleValue(for: .hour())
+            return String(format: "%.2f h", result)
+        case .moveDistance:
+            result = sample.quantity.doubleValue(for: .meter())
+            return String(format: "%.1f km", result / 1000)
+        }
+    }
 
     private func validate(snapshot: DocumentSnapshot?, error: Error?) -> Result<DocumentSnapshot, FirebaseError> {
         guard error == nil else {

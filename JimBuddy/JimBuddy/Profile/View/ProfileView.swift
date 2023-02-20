@@ -16,7 +16,8 @@ struct ProfileView: View {
         NavigationView {
             VStack(alignment: .center) {
                 List {
-                    ProfileDetailsView(gender: $personalDataViewModel.gender,
+                    ProfileDetailsView(age: $personalDataViewModel.age,
+                                       gender: $personalDataViewModel.gender,
                                        firstName: $personalDataViewModel.firstName,
                                        lastName: $personalDataViewModel.lastName,
                                        image: $personalDataViewModel.userImage)
@@ -26,32 +27,23 @@ struct ProfileView: View {
                             self.showGravatarInfoSheet.toggle()
                         })
 
-                    HStack {
-                        ProfileStatView(stat: .caloriesBurned, statValue: "1700")
-                        Spacer()
-                        ProfileStatView(stat: .exerciseTime, statValue: "3:34 h")
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
-                    .listRowSeparator(.hidden)
+                    ForEach(0 ... personalDataViewModel.healthSamples.count / 2, id: \.self) { idx in
+                        HStack {
+                            if idx * 2 < personalDataViewModel.healthSamples.count {
+                                ProfileStatView(stat: $personalDataViewModel.healthSamples[idx * 2].stat,
+                                                statValue: $personalDataViewModel.healthSamples[idx * 2].value)
+                                Spacer()
+                            }
 
-                    HStack {
-                        ProfileStatView(stat: .bodyWeight, statValue: "81 KG")
-                        Spacer()
-                        ProfileStatView(stat: .height, statValue: "185 cm")
+                            if idx * 2 + 1 < personalDataViewModel.healthSamples.count {
+                                ProfileStatView(stat: $personalDataViewModel.healthSamples[idx * 2 + 1].stat,
+                                                statValue: $personalDataViewModel.healthSamples[idx * 2 + 1].value)
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 10)
+                        .listRowSeparator(.hidden)
                     }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
-                    .listRowSeparator(.hidden)
-
-                    HStack {
-                        ProfileStatView(stat: .moveDistance, statValue: "4.3 KM")
-                        Spacer()
-                        ProfileStatView(stat: .steps, statValue: "11435")
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
-                    .listRowSeparator(.hidden)
                 }
                 .listStyle(.plain)
             }
