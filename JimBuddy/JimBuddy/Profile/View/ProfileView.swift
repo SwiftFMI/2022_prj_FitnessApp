@@ -51,17 +51,12 @@ struct ProfileView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 NavigationLink {
-                    CalendarView()
+                    EditProfileView()
+                        .environmentObject(sessionService)
                 } label: {
                     Image(systemName: "square.and.pencil")
                         .tint(Colors.darkGrey)
                 }
-//                Button {
-//                    sessionService.logout()
-//                } label: {
-//                    Image(systemName: "door.left.hand.open")
-//                        .tint(.white)
-//                }
             }
             .sheet(isPresented: $showGravatarInfoSheet) {
                 GravatarInfoSheet(image: $personalDataViewModel.userImage)
