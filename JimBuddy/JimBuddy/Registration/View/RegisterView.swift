@@ -23,8 +23,6 @@ struct RegisterView: View {
                         .scaledToFit()
                         .frame(width: 200, height: 200)
 
-
-
                     VStack(spacing: 16) {
                         InputTextFieldView(text: $viewModel.userDetails.email, placeholder: "Email", keyboardType: .emailAddress)
                         InputPasswordView(password: $viewModel.userDetails.password, placeholder: "Password")
