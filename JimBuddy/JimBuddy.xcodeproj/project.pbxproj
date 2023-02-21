@@ -11,6 +11,10 @@
 		3F05A825299EC75C00CBD42D /* DiaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05A824299EC75C00CBD42D /* DiaryService.swift */; };
 		3F05A829299EC7D900CBD42D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05A828299EC7D900CBD42D /* DateExtension.swift */; };
 		3F2AAAD6299AC60A00BFEEB3 /* CalorieProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2AAAD5299AC60A00BFEEB3 /* CalorieProgressView.swift */; };
+		3F436A6929A54D36005DE94D /* SelectableCalendarView in Frameworks */ = {isa = PBXBuildFile; productRef = 3F436A6829A54D36005DE94D /* SelectableCalendarView */; };
+		3F436A6C29A55856005DE94D /* AddFriendForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F436A6B29A55856005DE94D /* AddFriendForm.swift */; };
+		3F436A6E29A55B14005DE94D /* FriendCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F436A6D29A55B14005DE94D /* FriendCalendarView.swift */; };
+		3F436A7029A563BD005DE94D /* CalendarInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F436A6F29A563BD005DE94D /* CalendarInfoSheet.swift */; };
 		3F510850295C86790069F560 /* JimBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F51084F295C86790069F560 /* JimBuddyApp.swift */; };
 		3F510854295C867B0069F560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F510853295C867B0069F560 /* Assets.xcassets */; };
 		3F510857295C867B0069F560 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F510856295C867B0069F560 /* Preview Assets.xcassets */; };
@@ -89,6 +93,10 @@
 		3F05A824299EC75C00CBD42D /* DiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryService.swift; sourceTree = "<group>"; };
 		3F05A828299EC7D900CBD42D /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		3F2AAAD5299AC60A00BFEEB3 /* CalorieProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieProgressView.swift; sourceTree = "<group>"; };
+		3F436A6A29A55238005DE94D /* Selectable-Calendar-View */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Selectable-Calendar-View"; path = "../../Selectable-Calendar-View"; sourceTree = "<group>"; };
+		3F436A6B29A55856005DE94D /* AddFriendForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendForm.swift; sourceTree = "<group>"; };
+		3F436A6D29A55B14005DE94D /* FriendCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCalendarView.swift; sourceTree = "<group>"; };
+		3F436A6F29A563BD005DE94D /* CalendarInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInfoSheet.swift; sourceTree = "<group>"; };
 		3F51084C295C86790069F560 /* JimBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JimBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F51084F295C86790069F560 /* JimBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimBuddyApp.swift; sourceTree = "<group>"; };
 		3F510853295C867B0069F560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 				F327484E296B6C3F00D197CB /* FirebaseAuthCombine-Community in Frameworks */,
 				F303A14429743F75002E4B0C /* FirebaseDatabase in Frameworks */,
 				F3274850296B6C3F00D197CB /* FirebaseFirestore in Frameworks */,
+				3F436A6929A54D36005DE94D /* SelectableCalendarView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +470,7 @@
 		F3274857296B719F00D197CB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F436A6A29A55238005DE94D /* Selectable-Calendar-View */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -583,6 +593,9 @@
 			isa = PBXGroup;
 			children = (
 				F3A7F0762977EB0B0091FE2E /* CalendarView.swift */,
+				3F436A6B29A55856005DE94D /* AddFriendForm.swift */,
+				3F436A6D29A55B14005DE94D /* FriendCalendarView.swift */,
+				3F436A6F29A563BD005DE94D /* CalendarInfoSheet.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -612,6 +625,7 @@
 				F3274853296B6C3F00D197CB /* FirebaseFirestoreSwift */,
 				F3274858296B719F00D197CB /* FirebaseCrashlytics */,
 				F303A14329743F75002E4B0C /* FirebaseDatabase */,
+				3F436A6829A54D36005DE94D /* SelectableCalendarView */,
 			);
 			productName = JimBuddy;
 			productReference = 3F51084C295C86790069F560 /* JimBuddy.app */;
@@ -687,6 +701,7 @@
 			mainGroup = 3F510843295C86790069F560;
 			packageReferences = (
 				F327484A296B6C3F00D197CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3F436A6729A54D36005DE94D /* XCRemoteSwiftPackageReference "Selectable-Calendar-View" */,
 			);
 			productRefGroup = 3F51084D295C86790069F560 /* Products */;
 			projectDirPath = "";
@@ -771,11 +786,13 @@
 				3FEEA8D12999691300A355F9 /* FoodEntryView.swift in Sources */,
 				F303A1422972BAA0002E4B0C /* RegistrationService.swift in Sources */,
 				3F722C2629A10B7100EE6E22 /* FirebaseErrors.swift in Sources */,
+				3F436A7029A563BD005DE94D /* CalendarInfoSheet.swift in Sources */,
 				F303A13C2972B898002E4B0C /* HomePageView.swift in Sources */,
 				3F722C2329A10A2E00EE6E22 /* MeasuringUnits.swift in Sources */,
 				F303A14E29744FF8002E4B0C /* SessionService.swift in Sources */,
 				3F722C5129A2B65E00EE6E22 /* StringExtension.swift in Sources */,
 				F3A7F0772977EB0B0091FE2E /* CalendarView.swift in Sources */,
+				3F436A6E29A55B14005DE94D /* FriendCalendarView.swift in Sources */,
 				F3A7F06B29768CDB0091FE2E /* LoginViewModel.swift in Sources */,
 				F303A1302971BECA002E4B0C /* RegisterView.swift in Sources */,
 				F3A7F0732977E9A10091FE2E /* DiaryView.swift in Sources */,
@@ -787,6 +804,7 @@
 				3F722C4A29A2A7F300EE6E22 /* PersonalDataViewModel.swift in Sources */,
 				3F2AAAD6299AC60A00BFEEB3 /* CalorieProgressView.swift in Sources */,
 				3F05A825299EC75C00CBD42D /* DiaryService.swift in Sources */,
+				3F436A6C29A55856005DE94D /* AddFriendForm.swift in Sources */,
 				F303A1342971D4F6002E4B0C /* LoginModel.swift in Sources */,
 				3F722C4429A2576D00EE6E22 /* GravatarInfoSheet.swift in Sources */,
 				3FD7D33A29B14B8A00D237E8 /* EditProfileView.swift in Sources */,
@@ -1126,6 +1144,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3F436A6729A54D36005DE94D /* XCRemoteSwiftPackageReference "Selectable-Calendar-View" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mszpro/Selectable-Calendar-View";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		F327484A296B6C3F00D197CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -1137,6 +1163,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3F436A6829A54D36005DE94D /* SelectableCalendarView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F436A6729A54D36005DE94D /* XCRemoteSwiftPackageReference "Selectable-Calendar-View" */;
+			productName = SelectableCalendarView;
+		};
 		F303A14329743F75002E4B0C /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F327484A296B6C3F00D197CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
