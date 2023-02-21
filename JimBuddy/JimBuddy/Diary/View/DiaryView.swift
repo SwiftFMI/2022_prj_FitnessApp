@@ -71,13 +71,12 @@ struct DiaryView: View {
             }
             .navigationTitle("Diary")
             .navigationBarTitleDisplayMode(.inline)
-            .background(NavigationConfiguration())
             .toolbar {
                 NavigationLink {
-                    ProfileView()
+                    CalendarView()
                 } label: {
                     Image(systemName: "plus")
-                        .tint(.white)
+                        .tint(Colors.darkGrey)
                 }
             }
         }
