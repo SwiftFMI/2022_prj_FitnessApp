@@ -69,7 +69,8 @@ class CalendarService {
     private func postWorkoutConfirmation(on date: String,
                                          firstName: String,
                                          lastName: String,
-                                         completion: @escaping (Error?) -> Void)  {
+                                         completion: @escaping (Error?) -> Void)
+    {
         guard let email = Auth.auth().currentUser?.email else {
             completion(FirebaseError.authError)
             return
@@ -86,6 +87,62 @@ class CalendarService {
 
                 completion(nil)
             }
+    }
+
+    func checkIfAccountExists(email: String, completion: @escaping (Bool) -> Void) {
+        dbReference.collection("Users")
+            .document(email.lowercased())
+            .getDocument { document, _ in
+                guard let document = document,
+                          document.exists else {
+                    completion(false)
+                    return
+                }
+
+                completion(true)
+            }
+    }
+
+    func addFriend(email: String) -> AnyPublisher<Void, FirebaseError> {
+        Deferred {
+            Future { promise in
+                guard let currentUser = Auth.auth().currentUser?.email else {
+                    promise(.failure(.authError))
+                    return
+                }
+
+                var didReceiveError = false
+                let dispatchGroup = DispatchGroup()
+
+                dispatchGroup.enter()
+                self.dbReference.collection("Users/\(email.lowercased())/Friends").document(currentUser).setData([:]) { error in
+                    guard error == nil else {
+                        didReceiveError = true
+                        return
+                    }
+
+                    dispatchGroup.leave()
+                }
+
+                dispatchGroup.enter()
+                self.dbReference.collection("Users/\(currentUser)/Friends").document(email.lowercased()).setData([:]) { error in
+                    guard error == nil else {
+                        didReceiveError = true
+                        return
+                    }
+
+                    dispatchGroup.leave()
+                }
+
+                dispatchGroup.notify(queue: .main) {
+                    guard !didReceiveError else {
+                        promise(.failure(.generalError))
+                        return
+                    }
+                    promise(.success(()))
+                }
+            }
+        }.eraseToAnyPublisher()
     }
 
     private func procesFriendModel(data: [String: Any], documentID: String) -> FriendModel? {

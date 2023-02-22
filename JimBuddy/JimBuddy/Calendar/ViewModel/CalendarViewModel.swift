@@ -39,6 +39,26 @@ class CalendarViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
+    func addFriend(email: String) {
+        CalendarService.shared.checkIfAccountExists(email: email) { result in
+            switch result {
+            case true:
+                CalendarService.shared.addFriend(email: email)
+                    .sink { result in
+                        switch result {
+                        case .failure:
+                            print("Add errpr")
+                        case .finished:
+                            break
+                        }
+                    } receiveValue: { _ in /* empty closure */ }
+                    .store(in: &self.cancellables)
+            case false:
+                print("User does not exist")
+            }
+        }
+    }
+
     private func fetchImage(for user: FriendModel) {
         GravatarImageService.shared.loadImage(for: user.email) { [weak self] result in
             switch result {

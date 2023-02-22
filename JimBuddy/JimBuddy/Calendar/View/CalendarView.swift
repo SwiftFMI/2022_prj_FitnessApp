@@ -20,6 +20,7 @@ struct CalendarView: View {
             VStack {
                 List {
                     AddFriendForm()
+                        .environmentObject(calendarViewModel)
                         .listRowSeparator(.hidden)
                         .padding(.bottom, 20)
                         .animation(nil, value: calendarViewModel.friends.count)
