@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddFriendForm: View {
     @State var friendEmail: String = ""
-    //environment object viewModel
+    @EnvironmentObject var calendarViewModel: CalendarViewModel
 
     var body: some View {
         HStack(alignment: .center) {
@@ -22,9 +22,9 @@ struct AddFriendForm: View {
                     RoundedRectangle(cornerRadius: 6)
                         .stroke()
                         .foregroundColor(Colors.lightGrey))
-
             Button {
-                print("add")
+                self.calendarViewModel.addFriend(email: friendEmail)
+                self.friendEmail = ""
             } label: {
                 Text("Add friend")
             }
