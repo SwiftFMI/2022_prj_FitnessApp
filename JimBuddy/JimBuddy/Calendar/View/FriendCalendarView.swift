@@ -8,18 +8,21 @@
 import SwiftUI
 
 struct FriendCalendarView: View {
+
+    @Binding var user: FriendModel
+    
     var body: some View {
         HStack {
-            Image("default_profile")
+            Image(uiImage: user.image)
                 .resizable()
                 .frame(width: 35, height: 35)
                 .scaledToFit()
                 .clipShape(Circle())
 
             VStack(alignment: .leading) {
-                Text("Simeon Hristov")
+                Text(user.name)
                     .foregroundColor(Colors.darkGrey)
-                Text("simeon.hr01@gmail.com")
+                Text(user.email)
                     .tint(Colors.lightGrey)
                     .foregroundColor(Colors.lightGrey)
                     .font(.caption)

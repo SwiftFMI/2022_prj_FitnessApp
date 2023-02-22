@@ -90,7 +90,6 @@ final class PersonalDataViewModel: ObservableObject {
             self?.healthSamples = result.sorted(by: { lhs, rhs in
                 lhs.stat < rhs.stat
             })
-            print("-->",result)
         }
     }
 }

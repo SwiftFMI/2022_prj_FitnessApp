@@ -15,6 +15,9 @@
 		3F436A6C29A55856005DE94D /* AddFriendForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F436A6B29A55856005DE94D /* AddFriendForm.swift */; };
 		3F436A6E29A55B14005DE94D /* FriendCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F436A6D29A55B14005DE94D /* FriendCalendarView.swift */; };
 		3F436A7029A563BD005DE94D /* CalendarInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F436A6F29A563BD005DE94D /* CalendarInfoSheet.swift */; };
+		3F436A7529A56E98005DE94D /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F436A7429A56E98005DE94D /* FriendModel.swift */; };
+		3F436A7829A57081005DE94D /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F436A7729A57081005DE94D /* CalendarService.swift */; };
+		3F436A7B29A5759F005DE94D /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F436A7A29A5759F005DE94D /* CalendarViewModel.swift */; };
 		3F510850295C86790069F560 /* JimBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F51084F295C86790069F560 /* JimBuddyApp.swift */; };
 		3F510854295C867B0069F560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F510853295C867B0069F560 /* Assets.xcassets */; };
 		3F510857295C867B0069F560 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F510856295C867B0069F560 /* Preview Assets.xcassets */; };
@@ -38,6 +41,7 @@
 		3F722C5129A2B65E00EE6E22 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C5029A2B65E00EE6E22 /* StringExtension.swift */; };
 		3F722C5329A2B69800EE6E22 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F722C5229A2B69800EE6E22 /* APIError.swift */; };
 		3FA8E46129916F0E00423551 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA8E46029916F0E00423551 /* Colors.swift */; };
+		3FA9FF3F29A69F9E008572EB /* ConfirmWorkoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9FF3E29A69F9E008572EB /* ConfirmWorkoutButton.swift */; };
 		3FD7D33A29B14B8A00D237E8 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7D33929B14B8A00D237E8 /* EditProfileView.swift */; };
 		3FD7D33C29B157B800D237E8 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7D33B29B157B800D237E8 /* Goal.swift */; };
 		3FEEA8D12999691300A355F9 /* FoodEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEA8D02999691300A355F9 /* FoodEntryView.swift */; };
@@ -108,6 +112,9 @@
 		3F436A6B29A55856005DE94D /* AddFriendForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendForm.swift; sourceTree = "<group>"; };
 		3F436A6D29A55B14005DE94D /* FriendCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCalendarView.swift; sourceTree = "<group>"; };
 		3F436A6F29A563BD005DE94D /* CalendarInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInfoSheet.swift; sourceTree = "<group>"; };
+		3F436A7429A56E98005DE94D /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		3F436A7729A57081005DE94D /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
+		3F436A7A29A5759F005DE94D /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		3F51084C295C86790069F560 /* JimBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JimBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F51084F295C86790069F560 /* JimBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JimBuddyApp.swift; sourceTree = "<group>"; };
 		3F510853295C867B0069F560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +142,7 @@
 		3F722C5029A2B65E00EE6E22 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		3F722C5229A2B69800EE6E22 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		3FA8E46029916F0E00423551 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		3FA9FF3E29A69F9E008572EB /* ConfirmWorkoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmWorkoutButton.swift; sourceTree = "<group>"; };
 		3FD7D33929B14B8A00D237E8 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		3FD7D33B29B157B800D237E8 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		3FEEA8D02999691300A355F9 /* FoodEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryView.swift; sourceTree = "<group>"; };
@@ -227,6 +235,30 @@
 				3F05A828299EC7D900CBD42D /* DateExtension.swift */,
 			);
 			path = Date;
+			sourceTree = "<group>";
+		};
+		3F436A7329A56E8D005DE94D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F436A7429A56E98005DE94D /* FriendModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F436A7629A57072005DE94D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3F436A7729A57081005DE94D /* CalendarService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3F436A7929A5758D005DE94D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F436A7A29A5759F005DE94D /* CalendarViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		3F510843295C86790069F560 = {
@@ -674,6 +706,9 @@
 		F3A7F0742977EAF20091FE2E /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				3F436A7929A5758D005DE94D /* ViewModel */,
+				3F436A7629A57072005DE94D /* Service */,
+				3F436A7329A56E8D005DE94D /* Model */,
 				F3A7F0752977EAF90091FE2E /* View */,
 			);
 			path = Calendar;
@@ -686,6 +721,7 @@
 				3F436A6B29A55856005DE94D /* AddFriendForm.swift */,
 				3F436A6D29A55B14005DE94D /* FriendCalendarView.swift */,
 				3F436A6F29A563BD005DE94D /* CalendarInfoSheet.swift */,
+				3FA9FF3E29A69F9E008572EB /* ConfirmWorkoutButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -901,6 +937,8 @@
 				3F722C5329A2B69800EE6E22 /* APIError.swift in Sources */,
 				3F722C2929A118F200EE6E22 /* FoodItemViewModel.swift in Sources */,
 				F3663FA429A1930D001166FF /* SearchFoodEntryView.swift in Sources */,
+				3F436A7B29A5759F005DE94D /* CalendarViewModel.swift in Sources */,
+				3FA9FF3F29A69F9E008572EB /* ConfirmWorkoutButton.swift in Sources */,
 				F303A1382972B438002E4B0C /* CloseModifier.swift in Sources */,
 				3F722C4E29A2B52000EE6E22 /* GravatarImageService.swift in Sources */,
 				3F722C3629A146E900EE6E22 /* HealthKitService.swift in Sources */,
@@ -918,6 +956,7 @@
 				3F722C5129A2B65E00EE6E22 /* StringExtension.swift in Sources */,
 				F3A7F0772977EB0B0091FE2E /* CalendarView.swift in Sources */,
 				3F436A6E29A55B14005DE94D /* FriendCalendarView.swift in Sources */,
+				3F436A7529A56E98005DE94D /* FriendModel.swift in Sources */,
 				F3A7F06B29768CDB0091FE2E /* LoginViewModel.swift in Sources */,
 				F33932C9297AF44500C309EA /* SearchFoodView.swift in Sources */,
 				F303A1302971BECA002E4B0C /* RegisterView.swift in Sources */,
@@ -945,6 +984,7 @@
 				F33932D9297D9FB900C309EA /* CreateFoodDetails.swift in Sources */,
 				F3C489452990562D00E2CE24 /* StateEnums.swift in Sources */,
 				F3A7F06F2977E9310091FE2E /* ProfileView.swift in Sources */,
+				3F436A7829A57081005DE94D /* CalendarService.swift in Sources */,
 				F303A14B29744E0B002E4B0C /* SessionUserDetails.swift in Sources */,
 				F36E01ED296DB2DF000851EE /* InputTextFieldView.swift in Sources */,
 				3FD7D33C29B157B800D237E8 /* Goal.swift in Sources */,

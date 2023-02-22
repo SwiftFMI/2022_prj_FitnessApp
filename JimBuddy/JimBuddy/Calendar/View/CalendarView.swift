@@ -9,8 +9,11 @@ import SelectableCalendarView
 import SwiftUI
 
 struct CalendarView: View {
+
+    @StateObject private var calendarViewModel: CalendarViewModel = .init()
     @State private var dateSelected: Date = .init()
     @State private var showInfoSheet = false
+    @State private var buttonState: ConfirmWorkoutButton.ButtonState = .active
 
     var body: some View {
         NavigationView {
@@ -19,33 +22,27 @@ struct CalendarView: View {
                     AddFriendForm()
                         .listRowSeparator(.hidden)
                         .padding(.bottom, 20)
+                        .animation(nil, value: calendarViewModel.friends.count)
 
                     SelectableCalendarView(monthToDisplay: Date(), dateSelected: $dateSelected)
                         .listRowSeparator(.hidden)
-
-                    HStack {
-                        Spacer()
-                        Button {
-                            print("hi")
-                        } label: {
-                            Text("Confirm workout")
-                                .padding(.horizontal, 20)
-                        }
-                        .padding(.top, 10)
-                        .buttonStyle(.bordered)
-                        .tint(Colors.green)
-                        Spacer()
-                    }
+                        .animation(nil, value: calendarViewModel.friends.count)
+                    
+                    ConfirmWorkoutButton(buttonState: $buttonState, date: dateSelected)
+                        .environmentObject(calendarViewModel)
                     .listRowSeparator(.hidden)
+                    .animation(nil, value: calendarViewModel.friends.count)
 
                     Divider()
-
-                    FriendCalendarView()
                         .listRowSeparator(.hidden)
+                        .animation(nil, value: calendarViewModel.friends.count)
 
-                    FriendCalendarView()
-                        .listRowSeparator(.hidden)
+                    ForEach($calendarViewModel.friends.indices, id: \.self) { idx in
+                        FriendCalendarView(user: self.$calendarViewModel.friends[idx])
+                            .listRowSeparator(.hidden)
+                    }
                 }
+                .animation(.easeIn(duration: 0.01), value: calendarViewModel.friends.count)
                 .listStyle(.plain)
             }
             .navigationTitle("Calendar")
@@ -63,7 +60,16 @@ struct CalendarView: View {
                 CalendarInfoSheet()
             }
         }
-//        onAppear & onChange of date call for new data
+        .onAppear {
+            self.calendarViewModel.loadFriends(date: Date.formatFirebaseDate(date: self.dateSelected))
+        }
+        .onChange(of: dateSelected) { newValue in
+            self.buttonState = .active
+            if Calendar.current.compare(Date(), to: newValue, toGranularity: .day) == .orderedDescending {
+                self.buttonState = .disabled
+            }
+            self.calendarViewModel.loadFriends(date: Date.formatFirebaseDate(date: self.dateSelected))
+        }
     }
 }
 
