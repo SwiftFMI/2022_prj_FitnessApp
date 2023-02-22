@@ -14,13 +14,21 @@ class CalendarViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = .init()
 
     func loadFriends(date: String = Date.firebaseCurrentDate) {
-        CalendarService.shared.fetchFriendsPlanningToTrain(on: date) { [weak self] result in
+        CalendarService.shared.fetchUsersPlanningToTrain(on: date) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
-            case .success(let friends):
-                self?.friends = friends
-                friends.forEach { self?.fetchImage(for: $0) }
+            case .success(let usersPlanningToTrain):
+                CalendarService.shared.fetchFriends { result in
+                    switch result {
+                    case .success(let friends):
+                        let filteredUsers = usersPlanningToTrain.filter({ friends.contains($0.email) })
+                        self?.friends = filteredUsers
+                        filteredUsers.forEach { self?.fetchImage(for: $0) }
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
             }
         }
     }

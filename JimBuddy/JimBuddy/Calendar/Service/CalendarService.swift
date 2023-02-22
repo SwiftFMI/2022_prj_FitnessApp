@@ -18,7 +18,7 @@ class CalendarService {
 
     private let dbReference = Firestore.firestore()
 
-    func fetchFriendsPlanningToTrain(on date: String = Date.firebaseCurrentDate, completion: @escaping (Result<[FriendModel], FirebaseError>) -> Void) {
+    func fetchUsersPlanningToTrain(on date: String = Date.firebaseCurrentDate, completion: @escaping (Result<[FriendModel], FirebaseError>) -> Void) {
         dbReference
             .collection("WorkoutPlans/\(date)/Users")
             .addSnapshotListener { [weak self] querySnapshot, error in
@@ -39,6 +39,31 @@ class CalendarService {
                     completion(.failure(error))
                 }
             }
+    }
+
+    func fetchFriends(completion: @escaping (Result<[String], FirebaseError>) -> Void) {
+        guard let email = Auth.auth().currentUser?.email else {
+            completion(.failure(.authError))
+            return
+        }
+
+        dbReference.collection("Users/\(email)/Friends").addSnapshotListener { [weak self] querySnapShot, error in
+            guard let strongSelf = self else {
+                return
+            }
+            let result = strongSelf.validate(snapshot: querySnapShot, error: error)
+
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let snapshot):
+                var friends: [String] = .init()
+                snapshot.documents.forEach { document in
+                    friends.append(document.documentID)
+                }
+                completion(.success(friends))
+            }
+        }
     }
 
     func confirmWorkout(on date: String) -> AnyPublisher<Void, FirebaseError> {

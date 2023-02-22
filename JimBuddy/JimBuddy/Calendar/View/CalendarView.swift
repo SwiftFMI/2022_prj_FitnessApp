@@ -38,6 +38,18 @@ struct CalendarView: View {
                         .listRowSeparator(.hidden)
                         .animation(nil, value: calendarViewModel.friends.count)
 
+                    if calendarViewModel.friends.count == 0 {
+                        HStack {
+                            Spacer()
+                            Image("no_results")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 150)
+                            Spacer()
+                        }
+                        .listRowSeparator(.hidden   )
+                    }
+
                     ForEach($calendarViewModel.friends.indices, id: \.self) { idx in
                         FriendCalendarView(user: self.$calendarViewModel.friends[idx])
                             .listRowSeparator(.hidden)
