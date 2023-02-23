@@ -66,6 +66,7 @@
 		F3086F6929A755CB0069D66A /* AddFoodUiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3086F6829A755CB0069D66A /* AddFoodUiModel.swift */; };
 		F3086F6B29A7D8B60069D66A /* AddFoodItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3086F6A29A7D8B60069D66A /* AddFoodItemView.swift */; };
 		F3086F6D29A7DB0C0069D66A /* MacrosItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3086F6C29A7DB0C0069D66A /* MacrosItemView.swift */; };
+		F3086F7129A828100069D66A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3086F7029A828100069D66A /* NotificationManager.swift */; };
 		F327484C296B6C3F00D197CB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F327484B296B6C3F00D197CB /* FirebaseAuth */; };
 		F327484E296B6C3F00D197CB /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F327484D296B6C3F00D197CB /* FirebaseAuthCombine-Community */; };
 		F3274850296B6C3F00D197CB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F327484F296B6C3F00D197CB /* FirebaseFirestore */; };
@@ -176,6 +177,7 @@
 		F3086F6829A755CB0069D66A /* AddFoodUiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodUiModel.swift; sourceTree = "<group>"; };
 		F3086F6A29A7D8B60069D66A /* AddFoodItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodItemView.swift; sourceTree = "<group>"; };
 		F3086F6C29A7DB0C0069D66A /* MacrosItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacrosItemView.swift; sourceTree = "<group>"; };
+		F3086F7029A828100069D66A /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		F3274855296B6F2200D197CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F33932C8297AF44500C309EA /* SearchFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodView.swift; sourceTree = "<group>"; };
 		F33932D3297B131500C309EA /* CreateFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFoodView.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 		3F51084E295C86790069F560 /* JimBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				F3086F6F29A827C60069D66A /* Notifications */,
 				F3086F5A29A6C1780069D66A /* AddFood */,
 				F33932D1297B12F500C309EA /* CreateFood */,
 				F33932C6297AF41E00C309EA /* SearchFood */,
@@ -617,6 +620,14 @@
 				F3086F6529A7478D0069D66A /* AddFoodViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F3086F6F29A827C60069D66A /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				F3086F7029A828100069D66A /* NotificationManager.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		F3274857296B719F00D197CB /* Frameworks */ = {
@@ -1028,6 +1039,7 @@
 				3F722C4729A28EC100EE6E22 /* PersonalDataService.swift in Sources */,
 				F36E01EF296DBF77000851EE /* InputPasswordView.swift in Sources */,
 				3F722C4129A24CD600EE6E22 /* StatType.swift in Sources */,
+				F3086F7129A828100069D66A /* NotificationManager.swift in Sources */,
 				3F722C4C29A2A8CA00EE6E22 /* Gender.swift in Sources */,
 				F36E01E9296DB192000851EE /* LoginView.swift in Sources */,
 				3F722C5329A2B69800EE6E22 /* APIError.swift in Sources */,

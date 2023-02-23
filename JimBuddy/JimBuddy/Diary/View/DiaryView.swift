@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct DiaryView: View {
     @StateObject private var diaryViewModel: FoodItemViewModel = .init()
