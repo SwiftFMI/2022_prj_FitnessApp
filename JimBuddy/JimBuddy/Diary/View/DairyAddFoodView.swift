@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddFoodView: View {
+struct DairyAddFoodView: View {
     var body: some View {
         HStack(alignment: .center) {
             Image(systemName: "plus")
@@ -19,11 +19,5 @@ struct AddFoodView: View {
                 .font(.caption)
             Spacer()
         }
-    }
-}
-
-struct AddFoodButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddFoodView()
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 struct CreateFoodDetails {
     var name: String
     var calories: String
-    var measuringUnits: String
+    var measuringUnits: MeasuringUnits
     var quantity: String
     var protein: String
     var carbs: String
@@ -20,6 +20,6 @@ struct CreateFoodDetails {
 extension CreateFoodDetails {
     
     static var new: CreateFoodDetails {
-        CreateFoodDetails(name: "", calories: "", measuringUnits: "", quantity: "", protein: "", carbs: "", fats:  "")
+        CreateFoodDetails(name: "", calories: "", measuringUnits: .gram, quantity: "", protein: "", carbs: "", fats:  "")
     }
 }

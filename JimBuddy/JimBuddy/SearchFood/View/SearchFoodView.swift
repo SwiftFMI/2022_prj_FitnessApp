@@ -8,38 +8,43 @@
 import SwiftUI
 
 struct SearchFoodView: View {
-    private let navigationBarTitle : String = "Search Food"
+    let navigationBarTitle: String
     @StateObject private var viewModel = SearchFoodViewModelImpl(service: SearchFoodService())
+    @State private var searchText = ""
     
     var body: some View {
-            VStack {
-                List {
-                    ForEach(viewModel.foods.indices, id: \.self) { idx in
-                        SearchFoodEntryView(food: self.$viewModel.foods[idx])
+        VStack {
+            List {
+                ForEach(searchFoodResult, id: \.self) { currFood in
+                    NavigationLink(destination: AddFoodView(foodItem: currFood.mapToAddFoodUiModel(givenConsumptionTime: navigationBarTitle))) {
+                        SearchFoodEntryView(food: currFood)
                             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                             .padding(.horizontal, 10)
                     }
                 }
             }
-            .navigationTitle(navigationBarTitle)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar(content: {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: CreateFoodView()) {
-                        Text("Create food")
-                    }
+            
+        }
+        .navigationTitle(navigationBarTitle)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar(content: {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: CreateFoodView()) {
+                    Text("Create food")
                 }
-            })
-            .onAppear {
-                self.viewModel.loadFoods()
             }
+        })
+        .searchable(text: $searchText)
+        .onAppear {
+            self.viewModel.loadFoods()
+        }
     }
-}
-
-struct AddFoodView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            SearchFoodView()
+    
+    var searchFoodResult: [SearchFoodDetails] {
+        if searchText.isEmpty {
+            return viewModel.foods
+        } else {
+            return viewModel.foods.filter { $0.name.contains(searchText) }
         }
     }
 }

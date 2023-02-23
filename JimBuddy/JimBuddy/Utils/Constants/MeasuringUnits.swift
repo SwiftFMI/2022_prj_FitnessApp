@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MeasuringUnits: String {
+enum MeasuringUnits: String, CaseIterable {
     case gram = "gram"
     case ml = "millilitre"
     case piece = "piece"

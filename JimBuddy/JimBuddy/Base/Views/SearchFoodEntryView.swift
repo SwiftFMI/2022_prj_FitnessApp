@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchFoodEntryView: View {
-    @Binding var food: SearchFoodDetails
+    var food: SearchFoodDetails
     
     var body: some View {
         HStack(alignment: .center) {

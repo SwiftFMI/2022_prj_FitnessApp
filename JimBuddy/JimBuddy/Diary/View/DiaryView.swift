@@ -9,26 +9,27 @@ import SwiftUI
 
 struct DiaryView: View {
     @StateObject private var model: FoodItemViewModel = .init()
-
+    
     var body: some View {
-        NavigationView {
+        NavigationView{
             VStack {
                 List {
                     Section(header: Text("Calorie intake").textCase(nil)) {
                         CalorieProgressView(consumed: $model.consumedCalories)
                             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                        
                     }.padding(.vertical, 10)
-
+                    
                     Section(header: Text("Breakfast").textCase(nil)) {
                         ForEach(model.breakfastItems.indices, id: \.self) { idx in
                             FoodEntryView(foodItem: self.$model.breakfastItems[idx])
                                 .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                                 .padding(.horizontal, 10)
                         }
-                        AddFoodView()
-                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            .padding(.horizontal, 10)
+                        NavigationLink(destination: SearchFoodView(navigationBarTitle: "Breakfast")) {
+                            DairyAddFoodView()
+                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .padding(.horizontal, 10)
+                        }
                     }
                     
                     Section(header: Text("Lunch").textCase(nil)) {
@@ -37,9 +38,11 @@ struct DiaryView: View {
                                 .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                                 .padding(.horizontal, 10)
                         }
-                        AddFoodView()
-                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            .padding(.horizontal, 10)
+                        NavigationLink(destination: SearchFoodView(navigationBarTitle: "Lunch")) {
+                            DairyAddFoodView()
+                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .padding(.horizontal, 10)
+                        }
                     }
                     
                     Section(header: Text("Dinner").textCase(nil)) {
@@ -48,9 +51,11 @@ struct DiaryView: View {
                                 .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                                 .padding(.horizontal, 10)
                         }
-                        AddFoodView()
-                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            .padding(.horizontal, 10)
+                        NavigationLink(destination: SearchFoodView(navigationBarTitle: "Dinner")) {
+                            DairyAddFoodView()
+                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .padding(.horizontal, 10)
+                        }
                     }
                     
                     Section(header: Text("Snacks").textCase(nil)) {
@@ -59,9 +64,11 @@ struct DiaryView: View {
                                 .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                                 .padding(.horizontal, 10)
                         }
-                        AddFoodView()
-                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            .padding(.horizontal, 10)
+                        NavigationLink(destination: SearchFoodView(navigationBarTitle: "Snacks")) {
+                            DairyAddFoodView()
+                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .padding(.horizontal, 10)
+                        }
                     }
                 }
                 .listStyle(.insetGrouped)
@@ -71,14 +78,6 @@ struct DiaryView: View {
             }
             .navigationTitle("Diary")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                NavigationLink {
-                    CalendarView()
-                } label: {
-                    Image(systemName: "plus")
-                        .tint(Colors.darkGrey)
-                }
-            }
         }
     }
 }

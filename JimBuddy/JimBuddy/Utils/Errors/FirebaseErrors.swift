@@ -11,4 +11,5 @@ enum FirebaseError: String, Error {
     case generalError = "General error"
     case emptySnapshot = "No data has been found"
     case authError = "Your session has expired, please log in again"
+    case errorInAddingDocument = "Something went wrong. Please try again"
 }
