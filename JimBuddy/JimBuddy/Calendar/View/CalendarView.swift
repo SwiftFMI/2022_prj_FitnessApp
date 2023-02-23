@@ -83,6 +83,9 @@ struct CalendarView: View {
             }
             self.calendarViewModel.loadFriends(date: Date.formatFirebaseDate(date: self.dateSelected))
         }
+        .alert(isPresented: $calendarViewModel.hasError) {
+            Alert(title: Text("Error"), message: Text("Something went wrong"))
+        }
     }
 }
 

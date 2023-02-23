@@ -11,7 +11,7 @@ struct AddFoodView: View {
     @Environment(\.dismiss) private var dismiss
     let foodItem: AddFoodUiModel
     @StateObject private var viewModel = AddFoodViewModel(service: AddFoodService())
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -39,24 +39,27 @@ struct AddFoodView: View {
                 }
                 .listRowSeparator(.hidden)
             }.listStyle(.plain)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        self.viewModel.addFood(addFoodUiModel: foodItem)
-                        dismiss()
-                    } label: {
-                        Image(systemName: "checkmark")
-                    }.foregroundColor(.black)
-                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            self.viewModel.addFood(addFoodUiModel: foodItem)
+                            dismiss()
+                        } label: {
+                            Image(systemName: "checkmark")
+                        }.foregroundColor(.black)
+                    }
 
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "multiply")
-                    }.foregroundColor(.black)
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "multiply")
+                        }.foregroundColor(.black)
+                    }
                 }
-            }
+                .alert(isPresented: $viewModel.hasError) {
+                    Alert(title: Text("Error"), message: Text("Something went wrong"))
+                }
         }
     }
 }

@@ -10,7 +10,8 @@ import SwiftUI
 
 class CalendarViewModel: ObservableObject {
     @Published var friends: [FriendModel] = .init()
-
+    @Published var hasError: Bool = false
+    
     private var cancellables: Set<AnyCancellable> = .init()
 
     func loadFriends(date: String = Date.firebaseCurrentDate) {
@@ -18,6 +19,7 @@ class CalendarViewModel: ObservableObject {
             switch result {
             case .failure(let error):
                 print(error)
+                self?.hasError = true
             case .success(let usersPlanningToTrain):
                 CalendarService.shared.fetchFriends { result in
                     switch result {
@@ -27,6 +29,7 @@ class CalendarViewModel: ObservableObject {
                         filteredUsers.forEach { self?.fetchImage(for: $0) }
                     case .failure(let error):
                         print(error)
+                        self?.hasError = true
                     }
                 }
             }
@@ -35,10 +38,11 @@ class CalendarViewModel: ObservableObject {
 
     func confirmWorkout(date: String) {
         CalendarService.shared.confirmWorkout(on: date)
-            .sink { result in
+            .sink { [weak self]  result in
                 switch result {
                 case .failure(let error):
                     print(error)
+                    self?.hasError = true
                 case .finished:
                     return
                 }
@@ -48,19 +52,22 @@ class CalendarViewModel: ObservableObject {
     }
 
     func addFriend(email: String) {
-        CalendarService.shared.checkIfAccountExists(email: email) { result in
+        CalendarService.shared.checkIfAccountExists(email: email) { [weak self] result in
+            guard let strongSelf = self else{
+                return
+            }
             switch result {
             case true:
                 CalendarService.shared.addFriend(email: email)
                     .sink { result in
                         switch result {
                         case .failure:
-                            print("Add errpr")
+                            strongSelf.hasError = true
                         case .finished:
                             break
                         }
                     } receiveValue: { _ in /* empty closure */ }
-                    .store(in: &self.cancellables)
+                    .store(in: &strongSelf.cancellables)
             case false:
                 print("User does not exist")
             }

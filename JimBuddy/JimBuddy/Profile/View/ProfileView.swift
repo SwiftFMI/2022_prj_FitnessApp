@@ -65,6 +65,9 @@ struct ProfileView: View {
             .onAppear {
                 personalDataViewModel.loadFullData()
             }
+            .alert(isPresented: $personalDataViewModel.hasError) {
+                Alert(title: Text("Error"), message: Text("Something went wrong"))
+            }
         }
     }
 }

@@ -16,15 +16,17 @@ final class FoodItemViewModel: ObservableObject {
     @Published var breakfastItems: [FoodItem] = .init()
     @Published var lunchItems: [FoodItem] = .init()
     @Published var dinnerItems: [FoodItem] = .init()
-
+    @Published var hasError: Bool = false
+    
     private var cancellables: Set<AnyCancellable> = .init()
 
     func loadFoodItems() {
         DiaryService.shared.fetchFoodEntries()
-            .sink { result in
+            .sink { [weak self] result in
                 switch result {
                 case .failure(let error):
                     print(error)
+                    self?.hasError = true
                 case .finished:
                     return
                 }

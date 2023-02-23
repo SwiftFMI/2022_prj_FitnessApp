@@ -49,6 +49,9 @@ struct SearchFoodView: View {
         .onAppear {
             self.viewModel.loadFoods()
         }
+        .alert(isPresented: $viewModel.hasError) {
+            Alert(title: Text("Error"), message: Text("Something went wrong"))
+        }
     }
 
     var searchFoodResult: [SearchFoodDetails] {

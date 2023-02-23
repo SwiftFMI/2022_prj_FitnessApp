@@ -22,8 +22,8 @@ final class PersonalDataViewModel: ObservableObject {
     @Published var userImage: UIImage = .init(named: "default_profile") ?? UIImage()
 
     @Published var healthSamples: [(stat: StatType, value: String)] = .init()
-    @Published var displayError: Bool = false
-
+    @Published var hasError: Bool = false
+    
     func loadFullData() {
         loadPersonalCharacteristics()
         loadQuantityProperties()
@@ -46,7 +46,7 @@ final class PersonalDataViewModel: ObservableObject {
                 }
                 strongSelf.gender = gender
             case .failure:
-                strongSelf.displayError = true
+                strongSelf.hasError = true
             }
         }
     }
@@ -63,7 +63,7 @@ final class PersonalDataViewModel: ObservableObject {
                 strongSelf.lastName = userData.lastName
                 strongSelf.email = userData.email
             case .failure:
-                strongSelf.displayError = true
+                strongSelf.hasError = true
             }
         }
     }
