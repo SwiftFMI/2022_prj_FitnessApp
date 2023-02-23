@@ -21,7 +21,7 @@ class PersonalDataService {
         self.healthKit = HKHealthStore()
     }
 
-    func saveHealthDataInFirebase(age: Int, gender: String) {
+    func saveHealthDataInFirebase(birthday: Date, gender: String) {
         guard let email = Auth.auth().currentUser?.email else {
             return
         }
@@ -29,9 +29,9 @@ class PersonalDataService {
         dbReference
             .collection("Users")
             .document(email)
-            .setData(["age": age,
+            .setData(["birthday": birthday,
                       "gender": gender],
-                     mergeFields: ["age", "gender"])
+                     mergeFields: ["birthday", "gender"])
     }
 
     func getPersonalCharacteristicsHealthKit(completion: @escaping (Result<(age: Int, gender: String), Error>) -> Void) {
@@ -46,7 +46,7 @@ class PersonalDataService {
             let calendar = Calendar.current
 
             let ageComponents = calendar.dateComponents([.year], from: birthdayComponents.date!, to: today)
-            let age = ageComponents.year
+            let age = ageComponents.year!
             let gender = biologicalSex.biologicalSex
             let genderString: String
 
@@ -59,27 +59,14 @@ class PersonalDataService {
             case .other:
                 genderString = "Other"
             default:
-                getPersonalCharacteristicsFirebase { result in
-                    completion(result)
-                }
-                return
-            }
-
-            guard let age = age else {
-                getPersonalCharacteristicsFirebase { result in
-                    completion(result)
-                }
-                return
+                genderString = "Other"
             }
 
             // return and save data
             completion(.success((age: age, gender: genderString)))
-            saveHealthDataInFirebase(age: age, gender: genderString)
+            saveHealthDataInFirebase(birthday: birthdayComponents.date!, gender: genderString)
         } catch {
-            // check if data is already in firebase
-            getPersonalCharacteristicsFirebase { result in
-                completion(result)
-            }
+            completion(.failure(FirebaseError.generalError))
         }
     }
 
@@ -101,15 +88,21 @@ class PersonalDataService {
                 switch result {
                 case .success(let document):
                     let data = document.data()
-                    guard let age = data?["age"] as? Int,
+                    guard let birthday = data?["birthday"] as? Timestamp,
                           let gender = data?["gender"] as? String
                     else {
-                        completion(.failure(FirebaseError.generalError))
+                        self?.getPersonalCharacteristicsHealthKit(completion: { result in
+                            completion(result)
+                        })
                         return
                     }
+                    let age = strongSelf.procesBirthdayTimestamp(birthday)
                     completion(.success((age: age, gender: gender)))
                 case .failure:
-                    completion(.failure(FirebaseError.emptySnapshot))
+                    // try to get them from Health
+                    self?.getPersonalCharacteristicsHealthKit(completion: { result in
+                        completion(result)
+                    })
                 }
             }
     }
@@ -231,6 +224,16 @@ class PersonalDataService {
             result = sample.quantity.doubleValue(for: .meter())
             return String(format: "%.1f km", result / 1000)
         }
+    }
+
+    private func procesBirthdayTimestamp(_ timestamp: Timestamp) -> Int {
+        let date = Date.getDateFrom(timestamp: timestamp)
+
+        let today = Date()
+        let calendar = Calendar.current
+
+        let ageComponents = calendar.dateComponents([.year], from: date, to: today)
+        return ageComponents.year!
     }
 
     private func validate(snapshot: DocumentSnapshot?, error: Error?) -> Result<DocumentSnapshot, FirebaseError> {

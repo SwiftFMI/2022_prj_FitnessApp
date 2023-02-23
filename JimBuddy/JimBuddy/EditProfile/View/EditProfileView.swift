@@ -9,7 +9,8 @@ import SwiftUI
 
 struct EditProfileView: View {
     @EnvironmentObject var sessionService: SessionServiceImpl
-
+    @Environment(\.presentationMode) private var presentationMode
+    @Environment(\.dismiss) private var dismiss
     @StateObject var editProfileViewModel: EditProfileViewModel = .init()
     var body: some View {
         List {
@@ -79,6 +80,7 @@ struct EditProfileView: View {
         .navigationTitle("Edit Profile")
         .toolbar {
             Button {
+
                 sessionService.logout()
             } label: {
                 Image(systemName: "door.left.hand.open")
@@ -90,6 +92,7 @@ struct EditProfileView: View {
         }
 
         Button {
+            presentationMode.wrappedValue.dismiss()
             editProfileViewModel.updateUserData()
         } label: {
             HStack {
