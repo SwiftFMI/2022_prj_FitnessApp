@@ -11,35 +11,46 @@ struct SearchFoodView: View {
     let navigationBarTitle: String
     @StateObject private var viewModel = SearchFoodViewModelImpl(service: SearchFoodService())
     @State private var searchText = ""
-    
+    @State private var showCreateFoodScreen = false
+    @State private var showAddFoodScreen = false
+    @State private var selectedIndex: Int = 0
+
     var body: some View {
         VStack {
             List {
-                ForEach(searchFoodResult, id: \.self) { currFood in
-                    NavigationLink(destination: AddFoodView(foodItem: currFood.mapToAddFoodUiModel(givenConsumptionTime: navigationBarTitle))) {
-                        SearchFoodEntryView(food: currFood)
-                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            .padding(.horizontal, 10)
-                    }
+                ForEach(searchFoodResult.indices, id: \.self) { idx in
+                    SearchFoodEntryView(food: searchFoodResult[idx])
+                        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        .padding(.horizontal, 10)
+                        .contentShape(Rectangle()) // needed because tap gesture ignores Spacers()
+                        .onTapGesture {
+                            selectedIndex = idx
+                            showAddFoodScreen.toggle()
+                        }
+                        .sheet(isPresented: $showAddFoodScreen) {
+                            AddFoodView(foodItem: searchFoodResult[selectedIndex].mapToAddFoodUiModel(givenConsumptionTime: navigationBarTitle))
+                        }
                 }
             }
-            
         }
         .navigationTitle(navigationBarTitle)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar(content: {
+        .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: CreateFoodView()) {
-                    Text("Create food")
+                Button("Create Food") {
+                    showCreateFoodScreen.toggle()
                 }
             }
-        })
+        }
+        .sheet(isPresented: $showCreateFoodScreen) {
+            CreateFoodView()
+        }
         .searchable(text: $searchText)
         .onAppear {
             self.viewModel.loadFoods()
         }
     }
-    
+
     var searchFoodResult: [SearchFoodDetails] {
         if searchText.isEmpty {
             return viewModel.foods

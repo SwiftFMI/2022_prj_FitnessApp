@@ -8,43 +8,54 @@
 import SwiftUI
 
 struct AddFoodView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
     let foodItem: AddFoodUiModel
     @StateObject private var viewModel = AddFoodViewModel(service: AddFoodService())
     
     var body: some View {
-        VStack {
-            Text(foodItem.name)
-                .fontWeight(.bold)
-                .font(.title)
-            Divider()
-            AddFoodItemView(propertyName: "Calories", value: String(foodItem.calories))
-            HStack {
-                Text("Quantity")
-                Spacer()
-                TextField("Required", text: $viewModel.quantity)
-            }
-            AddFoodItemView(propertyName: "Measuring Unit", value: foodItem.measuringUnit.rawValue)
-            AddFoodItemView(propertyName: "Consumption Time", value: foodItem.consumptionTime)
-            HStack {
-                MacrosItemView(macrosName: "Protein", macrosValue: String(foodItem.protein))
-                Spacer()
-                MacrosItemView(macrosName: "Carbs", macrosValue: String(foodItem.carbs))
-                Spacer()
-                MacrosItemView(macrosName: "Fats", macrosValue: String(foodItem.fats))
-            }.padding(.horizontal, 30)
-            Spacer()
-        }
-        .navigationTitle("Add food")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    self.viewModel.addFood(addFoodUiModel: foodItem)
-                    self.presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Image(systemName: "checkmark")
-                }.foregroundColor(.black)
+        NavigationView {
+            List {
+                VStack {
+                    Text(foodItem.name)
+                        .fontWeight(.bold)
+                        .font(.title)
+                    Divider()
+                    AddFoodItemView(propertyName: "Calories", value: String(foodItem.calories))
+                    HStack {
+                        Text("Quantity")
+                        Spacer()
+                        TextField("Required", text: $viewModel.quantity)
+                    }
+                    AddFoodItemView(propertyName: "Measuring Unit", value: foodItem.measuringUnit.rawValue)
+                    AddFoodItemView(propertyName: "Consumption Time", value: foodItem.consumptionTime)
+                    HStack {
+                        MacrosItemView(macrosName: "Protein", macrosValue: String(foodItem.protein))
+                        Spacer()
+                        MacrosItemView(macrosName: "Carbs", macrosValue: String(foodItem.carbs))
+                        Spacer()
+                        MacrosItemView(macrosName: "Fats", macrosValue: String(foodItem.fats))
+                    }.padding(.horizontal, 30)
+                    Spacer()
+                }
+                .listRowSeparator(.hidden)
+            }.listStyle(.plain)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        self.viewModel.addFood(addFoodUiModel: foodItem)
+                        dismiss()
+                    } label: {
+                        Image(systemName: "checkmark")
+                    }.foregroundColor(.black)
+                }
+
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "multiply")
+                    }.foregroundColor(.black)
+                }
             }
         }
     }
