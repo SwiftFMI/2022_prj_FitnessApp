@@ -38,8 +38,13 @@ final class FoodItemViewModel: ObservableObject {
 
     private func calculateConsumedCalories() {
         var currentAmount = 0
+       
         for foodItem in foodItems {
-            currentAmount += foodItem.calories
+            if foodItem.measuringUnits == .piece {
+                currentAmount += foodItem.calories * foodItem.quantity
+            } else {
+                currentAmount += foodItem.calories * (foodItem.quantity/100)
+            }
         }
 
         consumedCalories = Double(currentAmount)

@@ -27,14 +27,14 @@ protocol CreateFoodService {
 
 final class CreateFoodServiceImpl: CreateFoodService {
     var db = Firestore.firestore()
-    var ref: DocumentReference?
-
-    func createFood(with createFoodDetails: CreateFoodDetails) -> AnyPublisher<Void, Error> {
+    var ref : DocumentReference? = nil
+    
+    func createFood(with createFoodDetails:CreateFoodDetails) -> AnyPublisher<Void, Error> {
         Deferred {
             Future { promise in
                 let valuesToAdd = [CreateFoodKeys.name.rawValue: createFoodDetails.name,
                                    CreateFoodKeys.quantity.rawValue: Int(createFoodDetails.quantity) ?? 0,
-                                   CreateFoodKeys.measuringUnits.rawValue: createFoodDetails.measuringUnits,
+                                   CreateFoodKeys.measuringUnits.rawValue: createFoodDetails.measuringUnits.rawValue,
                                    CreateFoodKeys.calories.rawValue: Int(createFoodDetails.calories) ?? 0,
                                    CreateFoodKeys.protein.rawValue: Double(createFoodDetails.protein) ?? 0,
                                    CreateFoodKeys.carbs.rawValue: Double(createFoodDetails.carbs) ?? 0,
