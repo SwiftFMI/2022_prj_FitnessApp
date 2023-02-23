@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ProfileView: View {
     @EnvironmentObject var sessionService: SessionServiceImpl
-    @State private var showGravatarInfoSheet = false
     @StateObject private var personalDataViewModel: PersonalDataViewModel = .init()
+    @State private var showGravatarInfoSheet = false
+    @State var showingEditScreen: Bool = false
 
     var body: some View {
         NavigationView {

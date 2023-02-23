@@ -9,11 +9,9 @@ import SwiftUI
 
 struct EditProfileView: View {
     @EnvironmentObject var sessionService: SessionServiceImpl
-
-    @State private var date = Date()
-    @State var text = ""
-    @State var gender = Gender.male
-    @State var goal = Goal.maintainWeight
+    @Environment(\.presentationMode) private var presentationMode
+    @Environment(\.dismiss) private var dismiss
+    @StateObject var editProfileViewModel: EditProfileViewModel = .init()
     var body: some View {
         List {
             VStack(alignment: .leading, spacing: 2) {
@@ -21,7 +19,7 @@ struct EditProfileView: View {
                     .font(.caption)
                     .padding(.bottom, 0)
                     .foregroundColor(Colors.darkGrey)
-                TextField("", text: $text)
+                TextField(editProfileViewModel.user.firstName, text: $editProfileViewModel.user.firstName)
                     .frame(maxWidth: .infinity, minHeight: 40)
                     .padding(.leading, 10)
                     .padding(.top, 0)
@@ -40,7 +38,7 @@ struct EditProfileView: View {
                     .font(.caption)
                     .padding(.bottom, 0)
                     .foregroundColor(Colors.darkGrey)
-                TextField("", text: $text)
+                TextField(editProfileViewModel.user.lastName, text: $editProfileViewModel.user.lastName)
                     .frame(maxWidth: .infinity, minHeight: 40)
                     .padding(.leading, 10)
                     .padding(.top, 0)
@@ -53,7 +51,7 @@ struct EditProfileView: View {
             .listRowSeparator(.hidden)
             .padding(0)
 
-            Picker("Gender", selection: $gender) {
+            Picker("Gender", selection: $editProfileViewModel.user.gender) {
                 Text("Male").tag(Gender.male)
                 Text("Female").tag(Gender.female)
                 Text("Other").tag(Gender.other)
@@ -61,7 +59,7 @@ struct EditProfileView: View {
             .foregroundColor(Colors.darkGrey)
             .listRowSeparator(.hidden)
 
-            Picker("Goal", selection: $goal) {
+            Picker("Goal", selection: $editProfileViewModel.user.goal) {
                 Text("Lose weight").tag(Goal.loseWeight)
                 Text("Maintain weight").tag(Goal.maintainWeight)
                 Text("Gain weight").tag(Goal.gainWeight)
@@ -71,7 +69,7 @@ struct EditProfileView: View {
 
             DatePicker(
                 "Birthday",
-                selection: $date,
+                selection: $editProfileViewModel.user.birthday,
                 displayedComponents: [.date])
                 .padding(.horizontal, 0)
                 .datePickerStyle(.automatic)
@@ -82,15 +80,20 @@ struct EditProfileView: View {
         .navigationTitle("Edit Profile")
         .toolbar {
             Button {
+
                 sessionService.logout()
             } label: {
                 Image(systemName: "door.left.hand.open")
                     .tint(Colors.darkGrey)
             }
         }
+        .onAppear {
+            editProfileViewModel.loadUserData()
+        }
 
         Button {
-            print("Save")
+            presentationMode.wrappedValue.dismiss()
+            editProfileViewModel.updateUserData()
         } label: {
             HStack {
                 Image(systemName: "checkmark")

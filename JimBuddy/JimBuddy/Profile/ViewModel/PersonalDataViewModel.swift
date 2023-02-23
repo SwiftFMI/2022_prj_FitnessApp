@@ -32,7 +32,7 @@ final class PersonalDataViewModel: ObservableObject {
     }
 
     func loadPersonalCharacteristics() {
-        PersonalDataService.shared.getPersonalCharacteristicsHealthKit { [weak self] result in
+        PersonalDataService.shared.getPersonalCharacteristicsFirebase { [weak self] result in
             guard let strongSelf = self else {
                 return
             }

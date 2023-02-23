@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum Goal {
-    case loseWeight
-    case maintainWeight
-    case gainWeight
+enum Goal: String {
+    case loseWeight = "Lose weight"
+    case maintainWeight = "Maintain weight"
+    case gainWeight = "Gain weight"
 }
