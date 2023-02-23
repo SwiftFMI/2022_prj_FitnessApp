@@ -90,6 +90,9 @@ struct EditProfileView: View {
         .onAppear {
             editProfileViewModel.loadUserData()
         }
+        .alert(isPresented: $editProfileViewModel.hasError) {
+            Alert(title: Text("Error"), message: Text("Something went wrong"))
+        }
 
         Button {
             presentationMode.wrappedValue.dismiss()

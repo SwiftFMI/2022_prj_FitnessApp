@@ -14,18 +14,20 @@ class EditProfileViewModel: ObservableObject {
                                      gender: .male,
                                      goal: .maintainWeight,
                                      birthday: Date())
-
+    @Published var hasError: Bool = false
+    
     private var cancellables: Set<AnyCancellable> = .init()
 
     
     func loadUserData() {
         EditProfileService.shared.fetchDetailedUserData()
-            .sink { result in
+            .sink { [weak self] result in
                 switch result {
                 case .finished:
                     return
                 case .failure(let error):
                     print(error)
+                    self?.hasError = true
                 }
             } receiveValue: { [weak self] user in
                 self?.user = user
@@ -34,9 +36,9 @@ class EditProfileViewModel: ObservableObject {
     }
 
     func updateUserData() {
-        EditProfileService.shared.updateUserDetails(user: user) { error in
+        EditProfileService.shared.updateUserDetails(user: user) { [weak self] error in
             guard  error == nil else {
-                print(error ?? "->")
+                self?.hasError = true
                 return
             }
         }

@@ -13,9 +13,7 @@ class AddFoodViewModel: ObservableObject {
     let service: AddFoodService
     
     @Published var state: ScreenState = .loading
-    
     @Published var hasError: Bool = false
-    
     @Published var quantity: String = ""
     
     private var subscriptions = Set<AnyCancellable>()

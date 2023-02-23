@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct DiaryView: View {
-    @StateObject private var model: FoodItemViewModel = .init()
+    @StateObject private var diaryViewModel: FoodItemViewModel = .init()
     
     var body: some View {
         NavigationView{
             VStack {
                 List {
                     Section(header: Text("Calorie intake").textCase(nil)) {
-                        CalorieProgressView(consumed: $model.consumedCalories)
+                        CalorieProgressView(consumed: $diaryViewModel.consumedCalories)
                             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                     }.padding(.vertical, 10)
                     
                     Section(header: Text("Breakfast").textCase(nil)) {
-                        ForEach(model.breakfastItems.indices, id: \.self) { idx in
-                            FoodEntryView(foodItem: self.$model.breakfastItems[idx])
+                        ForEach(diaryViewModel.breakfastItems.indices, id: \.self) { idx in
+                            FoodEntryView(foodItem: self.$diaryViewModel.breakfastItems[idx])
                                 .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                                 .padding(.horizontal, 10)
                         }
@@ -33,8 +33,8 @@ struct DiaryView: View {
                     }
                     
                     Section(header: Text("Lunch").textCase(nil)) {
-                        ForEach(model.lunchItems.indices, id: \.self) { idx in
-                            FoodEntryView(foodItem: self.$model.lunchItems[idx])
+                        ForEach(diaryViewModel.lunchItems.indices, id: \.self) { idx in
+                            FoodEntryView(foodItem: self.$diaryViewModel.lunchItems[idx])
                                 .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                                 .padding(.horizontal, 10)
                         }
@@ -46,8 +46,8 @@ struct DiaryView: View {
                     }
                     
                     Section(header: Text("Dinner").textCase(nil)) {
-                        ForEach(model.dinnerItems.indices, id: \.self) { idx in
-                            FoodEntryView(foodItem: self.$model.dinnerItems[idx])
+                        ForEach(diaryViewModel.dinnerItems.indices, id: \.self) { idx in
+                            FoodEntryView(foodItem: self.$diaryViewModel.dinnerItems[idx])
                                 .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                                 .padding(.horizontal, 10)
                         }
@@ -59,8 +59,8 @@ struct DiaryView: View {
                     }
                     
                     Section(header: Text("Snacks").textCase(nil)) {
-                        ForEach(model.snackItems.indices, id: \.self) { idx in
-                            FoodEntryView(foodItem: self.$model.snackItems[idx])
+                        ForEach(diaryViewModel.snackItems.indices, id: \.self) { idx in
+                            FoodEntryView(foodItem: self.$diaryViewModel.snackItems[idx])
                                 .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                                 .padding(.horizontal, 10)
                         }
@@ -73,11 +73,14 @@ struct DiaryView: View {
                 }
                 .listStyle(.insetGrouped)
                 .onAppear {
-                    self.model.loadFoodItems()
+                    self.diaryViewModel.loadFoodItems()
                 }
             }
             .navigationTitle("Diary")
             .navigationBarTitleDisplayMode(.inline)
+            .alert(isPresented: $diaryViewModel.hasError) {
+                Alert(title: Text("Error"), message: Text("Something went wrong"))
+            }
         }
     }
 }
