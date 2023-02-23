@@ -14,15 +14,16 @@ struct AddFoodItemView: View {
     var body: some View {
         HStack {
             Text(propertyName)
-                .font(.system(size:20))
+                .font(.callout)
+                .textCase(.uppercase)
             Spacer()
             Text(String(value))
-                .padding(10)
-                .foregroundColor(.gray)
+                .frame(minWidth: 120)
+                .padding(.vertical, 5)
+                .foregroundColor(Colors.green)
                 .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(.gray, lineWidth: 4))
-                .font(.system(size:20))
-        }.padding(10)
+                RoundedRectangle(cornerRadius: 6)
+                    .stroke(Colors.green, lineWidth: 2))
+        }
     }
 }

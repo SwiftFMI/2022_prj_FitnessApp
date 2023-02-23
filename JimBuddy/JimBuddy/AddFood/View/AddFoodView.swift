@@ -21,21 +21,45 @@ struct AddFoodView: View {
                         .font(.title)
                     Divider()
                     AddFoodItemView(propertyName: "Calories", value: String(foodItem.calories))
-                    HStack {
-                        Text("Quantity")
-                        Spacer()
-                        TextField("Required", text: $viewModel.quantity)
-                    }
+
                     AddFoodItemView(propertyName: "Measuring Unit", value: foodItem.measuringUnit.rawValue)
+
                     AddFoodItemView(propertyName: "Consumption Time", value: foodItem.consumptionTime)
-                    HStack {
-                        MacrosItemView(macrosName: "Protein", macrosValue: String(foodItem.protein))
-                        Spacer()
-                        MacrosItemView(macrosName: "Carbs", macrosValue: String(foodItem.carbs))
-                        Spacer()
-                        MacrosItemView(macrosName: "Fats", macrosValue: String(foodItem.fats))
-                    }.padding(.horizontal, 30)
-                    Spacer()
+
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Quantity")
+                            .font(.callout)
+                            .textCase(.uppercase)
+                            .padding(.bottom, 0)
+                            .foregroundColor(Colors.darkGrey)
+                        TextField("Required", text: $viewModel.quantity)
+                            .frame(maxWidth: .infinity, minHeight: 40)
+                            .padding(.leading, 10)
+                            .padding(.top, 0)
+                            .autocorrectionDisabled(true)
+                            .background(
+                                RoundedRectangle(cornerRadius: 6)
+                                    .stroke(Colors.lightGrey, lineWidth: 1))
+                    }
+                    .padding(.top, 10)
+
+                    VStack {
+                        Text("Macros")
+                        .font(.callout)
+                        .textCase(.uppercase)
+                        .padding(.bottom, 0)
+                        .foregroundColor(Colors.lightGrey)
+                        HStack {
+                            MacrosItemView(macros: .protein, macrosValue: String(foodItem.protein))
+                            Spacer()
+                            MacrosItemView(macros: .carb, macrosValue: String(foodItem.carbs))
+                            Spacer()
+                            MacrosItemView(macros: .fat, macrosValue: String(foodItem.fats))
+                        }
+                    }
+
+                    .padding(.horizontal, 20)
+                    .padding(.top, 10)
                 }
                 .listRowSeparator(.hidden)
             }.listStyle(.plain)
