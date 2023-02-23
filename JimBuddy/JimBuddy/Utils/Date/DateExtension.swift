@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 public extension Date {
     static var firebaseCurrentDate: String {
@@ -18,5 +19,11 @@ public extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         return dateFormatter.string(from: date)
+    }
+
+    static func getDateFrom(timestamp: Timestamp) -> Date {
+        let epocTime = timestamp.seconds
+
+        return Date(timeIntervalSince1970: Double(epocTime))
     }
 }
