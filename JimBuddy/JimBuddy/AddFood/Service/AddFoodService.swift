@@ -24,6 +24,7 @@ enum AddFoodKeys: String {
 class AddFoodService {
     
     private let db = Firestore.firestore()
+    private let notificationManager = NotificationManager()
     
     func addFoodForDay(date: String = Date.firebaseCurrentDate, addFoodModel: AddFoodModel) -> AnyPublisher<Void, FirebaseError> {
         Future<Void, FirebaseError> {
@@ -52,6 +53,7 @@ class AddFoodService {
                     err in if err != nil {
                         promise(.failure(.errorInAddingDocument))
                     } else {
+                        let scheduledNotificationId = self?.notificationManager.scheduleNotification(waitTime: 1)
                         promise(.success(()))
                     }
                 }
