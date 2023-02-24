@@ -17,7 +17,7 @@ final class FoodItemViewModel: ObservableObject {
     @Published var lunchItems: [FoodItem] = .init()
     @Published var dinnerItems: [FoodItem] = .init()
     @Published var hasError: Bool = false
-    
+
     private var cancellables: Set<AnyCancellable> = .init()
 
     func loadFoodItems() {

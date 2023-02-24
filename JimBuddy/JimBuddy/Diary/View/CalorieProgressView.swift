@@ -12,7 +12,7 @@ struct CalorieProgressView: View {
 
     var body: some View {
         ZStack(alignment: .center) {
-            ProgressView(value: consumed, total: 2300)
+            ProgressView(value: consumed, total: 2543)
                 .progressViewStyle(.linear)
                 .tint(Colors.green)
                 .background(Colors.pink)
@@ -29,12 +29,16 @@ struct CalorieProgressView: View {
                 Spacer()
 
                 VStack(alignment: .trailing) {
-                    Text("1623 kCal")
+                    Text("\(Constants.totalCalories - Int(consumed)) kCal")
                     Text("to go").font(.caption2)
                 }
                 .padding(.trailing, 10)
             }
             .foregroundColor(.white)
         }
+    }
+
+    enum Constants {
+        static let totalCalories = 2543
     }
 }
