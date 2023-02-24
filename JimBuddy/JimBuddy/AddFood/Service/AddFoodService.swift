@@ -53,12 +53,24 @@ class AddFoodService {
                     err in if err != nil {
                         promise(.failure(.errorInAddingDocument))
                     } else {
-                        let scheduledNotificationId = self?.notificationManager.scheduleNotification(waitTime: 1)
+
+                        self?.scheduleNotification()
                         promise(.success(()))
                     }
                 }
         }
         .receive(on: RunLoop.main)
         .eraseToAnyPublisher()
+    }
+
+    func scheduleNotification() {
+        let notificationID = notificationManager.scheduleNotification(waitTime: 1)
+
+        let defaults = UserDefaults.standard
+        if let oldNotificationID = defaults.value(forKey: "lastNotificationID") as? String {
+            notificationManager.removeScheduledNotification(notificationId: oldNotificationID)
+        }
+
+        defaults.set(notificationID, forKey: "lastNotificationID")
     }
 }
