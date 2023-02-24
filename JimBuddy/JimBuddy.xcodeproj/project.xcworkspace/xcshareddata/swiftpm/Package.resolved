@@ -100,6 +100,15 @@
       }
     },
     {
+      "identity" : "selectable-calendar-view",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mszpro/Selectable-Calendar-View",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ab1e1c93d2d8092c1d931c1d29dd25ee47055ffc"
+      }
+    },
+    {
       "identity" : "swift-protobuf",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",

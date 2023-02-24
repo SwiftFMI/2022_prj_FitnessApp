@@ -13,22 +13,24 @@ struct SearchFoodView: View {
     @State private var searchText = ""
     @State private var showCreateFoodScreen = false
     @State private var showAddFoodScreen = false
-    @State private var selectedIndex: Int = 0
-
+    @State private var selectedItem = SearchFoodDetails.new
+    
     var body: some View {
+        let localSelectedItem = self.selectedItem
+        
         VStack {
             List {
-                ForEach(searchFoodResult.indices, id: \.self) { idx in
-                    SearchFoodEntryView(food: searchFoodResult[idx])
+                ForEach(searchFoodResult, id: \.self) { foodItem in
+                    SearchFoodEntryView(food: foodItem)
                         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                         .padding(.horizontal, 10)
-                        .contentShape(Rectangle()) // needed because tap gesture ignores Spacers()
+                        .contentShape(Rectangle())// needed because tap gesture ignores Spacers()
                         .onTapGesture {
-                            selectedIndex = idx
                             showAddFoodScreen.toggle()
+                            self.selectedItem = foodItem
                         }
                         .sheet(isPresented: $showAddFoodScreen) {
-                            AddFoodView(foodItem: searchFoodResult[selectedIndex].mapToAddFoodUiModel(givenConsumptionTime: navigationBarTitle))
+                                AddFoodView(foodItem: localSelectedItem.mapToAddFoodUiModel(givenConsumptionTime: navigationBarTitle))
                         }
                 }
             }
