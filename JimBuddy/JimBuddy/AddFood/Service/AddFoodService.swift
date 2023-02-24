@@ -53,7 +53,7 @@ class AddFoodService {
                     err in if err != nil {
                         promise(.failure(.errorInAddingDocument))
                     } else {
-                        self?.notificationManager.scheduleNotification(waitTime: 5)
+                        let scheduledNotificationId = self?.notificationManager.scheduleNotification(waitTime: 1)
                         promise(.success(()))
                     }
                 }

@@ -26,13 +26,13 @@ class NotificationManager {
         self.userNotificationCenter = userNotificationCenter
     }
     
-    func scheduleNotification(waitTime: Double) -> String{
+    func scheduleNotification(waitTime: Int) -> String{
             let content = UNMutableNotificationContent()
             content.title = "Jim Buddy"
             content.body = "You haven't logged you food for today. Would you like to do it now?"
             content.sound = .default
         
-            let date = Date().addingTimeInterval(waitTime)
+            let date = Calendar.current.date(byAdding: .day, value: waitTime, to: Date())!
 
             let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
 
