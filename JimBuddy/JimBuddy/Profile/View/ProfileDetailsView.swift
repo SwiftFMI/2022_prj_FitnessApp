@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileDetailsView: View {
+    @Binding var age: Int?
     @Binding var gender: Gender?
     @Binding var firstName: String
     @Binding var lastName: String
@@ -48,8 +49,10 @@ struct ProfileDetailsView: View {
                 .font(.caption)
 
             HStack(alignment: .center) {
-                Text("21")
-                    .foregroundColor(Colors.darkGrey)
+                if let age {
+                    Text("\(age)")
+                        .foregroundColor(Colors.darkGrey)
+                }
 
                 Image(gender?.iconName ?? "")
                     .resizable()

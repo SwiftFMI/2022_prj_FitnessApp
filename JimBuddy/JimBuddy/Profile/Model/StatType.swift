@@ -6,14 +6,15 @@
 //
 
 import Foundation
+import HealthKit
 
-enum StatType {
-    case steps
-    case caloriesBurned
-    case bodyWeight
+enum StatType: Comparable {
     case height
-    case exerciseTime
+    case bodyWeight
+    case steps
     case moveDistance
+    case caloriesBurned
+    case exerciseTime
 
     var statIconName: String {
         switch self {
@@ -48,4 +49,11 @@ enum StatType {
             return "Distance traveled"
         }
     }
+
+    static let allTypes: [StatType: HKSampleType?] = [.steps: HKSampleType.quantityType(forIdentifier: .stepCount),
+                                                      .height: HKSampleType.quantityType(forIdentifier: .height),
+                                                      .bodyWeight: HKSampleType.quantityType(forIdentifier: .bodyMass),
+                                                      .caloriesBurned: HKSampleType.quantityType(forIdentifier: .activeEnergyBurned),
+                                                      .exerciseTime: HKSampleType.quantityType(forIdentifier: .appleExerciseTime),
+                                                      .moveDistance: HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning)]
 }

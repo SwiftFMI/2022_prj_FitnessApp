@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ProfileStatView: View {
 
-    let stat: StatType
-    let statValue: String
+    @Binding var stat: StatType
+    @Binding var statValue: String
 
     var body: some View {
         VStack(alignment: .center) {
